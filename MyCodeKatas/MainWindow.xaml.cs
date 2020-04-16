@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -198,6 +199,19 @@ namespace MyCodeKatas
                     MessageBox.Show("Dieser Code-Kata wurde wahrscheinlich noch nicht bearbeitet.", "Nope :)");
                     break;
             }
+        }
+        private void SolutionButton_Click(object sender, RoutedEventArgs e)
+        {
+            string localSolutionPath = @"C:\Users\hecke\source\repos\lukashecke\MyCodeKatas\MyCodeKatas.sln";
+            if (File.Exists(localSolutionPath))
+            {
+                Process.Start(new ProcessStartInfo(localSolutionPath));
+            }
+            else
+            {
+                MessageBox.Show("Die Projektmappe liegt auf meinem Rechner.\n\nLukas", "Sorry");
+            }
+
         }
         private void PART_ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

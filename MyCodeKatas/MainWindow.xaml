@@ -43,9 +43,10 @@
         </ListView>
         <Grid Grid.Row="1" Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
-            <Button x:Name="PART_WebsiteButton" Content="Zur Internetseite" Width="150" Height="50" Margin="25" Click="WebsiteButton_Click" IsEnabled="False" Grid.Row="0"/>
-                <Button x:Name="PART_ProgramButton" Content="Programm öffnen" Width="150" Height="50" Margin="25" Click="ProgramButton_Click" IsEnabled="False" Grid.Row="1"/>
-        </StackPanel>
+                <Button x:Name="PART_WebsiteButton" Content="Zur Internetseite" Width="150" Height="50" Margin="25" Click="WebsiteButton_Click" IsEnabled="False"/>
+                <Button x:Name="PART_ProgramButton" Content="Programm öffnen" Width="150" Height="50" Margin="25" Click="ProgramButton_Click" IsEnabled="False"/>
+                <Button x:Name="PART_SolutionButton" Content="Projektmappe öffnen" Width="150" Height="50" Margin="25" Click="SolutionButton_Click"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

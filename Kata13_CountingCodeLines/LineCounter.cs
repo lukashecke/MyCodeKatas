@@ -189,7 +189,7 @@ namespace Kata13_CountingCodeLines
             }
         }
 
-        private void GetFilePaths()
+        private void GetFilePaths() // TODO: Verknüpfungen zu Dateien oder Ordnern können noch nicht ausgelesen werden, und werden momentan noch ignoriert
         {
             if (File.Exists(Path))
             {
