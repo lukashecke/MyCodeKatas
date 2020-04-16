@@ -13,6 +13,7 @@ namespace Kata13_CountingCodeLines
     /// </summary>
     class LineCounter
     {
+        #region properties/ entities
         private string Path { get; set; }
         private int AmountOfJavaCodeLines { get; set; }
         private int AmountOfCsCodeLines { get; set; }
@@ -49,6 +50,9 @@ namespace Kata13_CountingCodeLines
                 this.csFilePaths = value;
             }
         }
+        #endregion
+
+        #region constructors
         public LineCounter(string path)
         {
             if (ValidatePath(path))
@@ -61,18 +65,30 @@ namespace Kata13_CountingCodeLines
                 Console.WriteLine($"Der Übergebene Pfad enthät {AmountOfJavaCodeLines} Zeilen Java Code.");
             }
         }
+        #endregion
 
+        #region counting lines functions
+        // counting lines functions can be mainly copy pasted for further programming languages
+        // but keep in mind, that syntax definition can differ between them
         private int CountCsLines()
         {
-            // TODO: Muss für C# noch gemacht werden
             foreach (string filePath in CsFilePaths)
             {
                 string[] lines = File.ReadAllLines(filePath);
-                AmountOfCsCodeLines += lines.Length;
+                string[] clearLines = new string[lines.Length];
+                clearLines = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
+                clearLines = RemoveInLineComments(clearLines);
+                foreach (string line in clearLines)
+                {
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        AmountOfCsCodeLines++;
+                    }
+                }
             }
             return AmountOfCsCodeLines;
         }
-        private int CountJavaLines() // Test with this                                         C:\Users\hecke\Desktop\Test2.java
+        private int CountJavaLines()
         {
             foreach (string filePath in JavaFilePaths)
             {
@@ -87,11 +103,12 @@ namespace Kata13_CountingCodeLines
                         AmountOfJavaCodeLines++;
                     }
                 }
-
             }
             return AmountOfJavaCodeLines;
         }
+        #endregion
 
+        #region string manipulation functins
         private string[] RemoveMultiLineComments(string[] clearLines)
         {
             List<string> linesWithoutComments = new List<string>();
@@ -188,7 +205,9 @@ namespace Kata13_CountingCodeLines
                 return true;
             }
         }
+        #endregion
 
+        #region IO functions
         private void GetFilePaths() // TODO: Verknüpfungen zu Dateien oder Ordnern können noch nicht ausgelesen werden, und werden momentan noch ignoriert
         {
             if (File.Exists(Path))
@@ -229,5 +248,6 @@ namespace Kata13_CountingCodeLines
             Path = path;
             return true;
         }
+        #endregion
     }
 }
