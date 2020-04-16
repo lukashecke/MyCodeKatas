@@ -75,10 +75,10 @@ namespace Kata13_CountingCodeLines
             foreach (string filePath in CsFilePaths)
             {
                 string[] lines = File.ReadAllLines(filePath);
-                string[] clearLines = new string[lines.Length];
-                clearLines = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
-                clearLines = RemoveInLineComments(clearLines);
-                foreach (string line in clearLines)
+                string[] linesWithoutComments = new string[lines.Length];
+                linesWithoutComments = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
+                linesWithoutComments = RemoveSingleLineComments(linesWithoutComments);
+                foreach (string line in linesWithoutComments)
                 {
                     if (!string.IsNullOrWhiteSpace(line))
                     {
@@ -95,7 +95,7 @@ namespace Kata13_CountingCodeLines
                 string[] lines = File.ReadAllLines(filePath);
                 string[] clearLines = new string[lines.Length];
                 clearLines = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
-                clearLines = RemoveInLineComments(clearLines);
+                clearLines = RemoveSingleLineComments(clearLines);
                 foreach (string line in clearLines)
                 {
                     if (!string.IsNullOrWhiteSpace(line))
@@ -108,7 +108,14 @@ namespace Kata13_CountingCodeLines
         }
         #endregion
 
-        #region string manipulation functins
+        #region string manipulation functions
+        // TODO: Methode übersichtlicher aufbauen/ schreiben. 
+        /// <summary>
+        /// <para>Removes all multiline-comments. On one line, over multiple lines and mixtures of both.</para>
+        /// Important: Has to be done before the removal of the singleline comments! (due to syntax evaluation order)
+        /// </summary>
+        /// <param name="clearLines"></param>
+        /// <returns></returns>
         private string[] RemoveMultiLineComments(string[] clearLines)
         {
             List<string> linesWithoutComments = new List<string>();
@@ -161,6 +168,12 @@ namespace Kata13_CountingCodeLines
             return linesWithoutComments.ToArray();
         }
 
+        /// <summary>
+        /// Removes in-line multiline comments (one per loop-iteration) while there are no one left.
+        /// Example: ("/*foo*/something/*bar*/" -> "something")
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         private string RemoveInLineMultiLineComments(string line)
         {
             string s = line;
@@ -174,25 +187,37 @@ namespace Kata13_CountingCodeLines
             }
             return s;
         }
-
-        private string[] RemoveInLineComments(string[] lines)
+        /// <summary>
+        /// <para>Removes "//" plus everything behind per line.</para>
+        /// Important: Has to be done after the removal of the multiline comments! (due to syntax evaluation order)
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
+        private string[] RemoveSingleLineComments(string[] lines)
         {
             List<string> linesWithoutComments = new List<string>();
             foreach (string line in lines)
             {
                 int inlineCommentIndex = line.IndexOf("//");
-                if (inlineCommentIndex != -1 && !CommentStartInsideAString(line)) // no comment found
+                if (inlineCommentIndex >= 0 && !CommentStartInsideAString(line)) // inlineCommentIndex = -1 if no comment found 
                 {
                     linesWithoutComments.Add(line.Remove(inlineCommentIndex));
                 }
-                else
+                else // no comment found
                 {
                     linesWithoutComments.Add(line);
                 }
             }
             return linesWithoutComments.ToArray();
         }
-
+        /// <summary>
+        /// <para>Checks if the comment-starting sequence occurs inside of a string.</para>
+        /// Explanation:
+        /// "/*" and  "//" are valid comment-start-sequences just in case they are not a part of a string (within a "...").
+        /// However a comment-end-sequence ("*/") is valid even inside of a string.
+        /// </summary>
+        /// <param name="line">The line has to be cleared already of all other comments like a single line comment (//...) and one or more multiline comments that can occur in the same line aswell ("/*...*/").</param>
+        /// <returns>If valid comment start sequence.</returns>
         private bool CommentStartInsideAString(string line)
         {
             string lineWithoutStrings = Regex.Replace(line, "\".*?\"", ""); // Remove all strings and ckecks if any start comment sequences left
