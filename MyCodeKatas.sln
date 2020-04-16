@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCodeKatas", "MyCodeKatas\MyCodeKatas.csproj", "{F82066B6-46E5-4F03-8365-8C68EDD0CB69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata13_CountingCodeLines", "Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj", "{3194F704-2DC8-4B38-AC59-F4FDCC32E272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F82066B6-46E5-4F03-8365-8C68EDD0CB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82066B6-46E5-4F03-8365-8C68EDD0CB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82066B6-46E5-4F03-8365-8C68EDD0CB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82066B6-46E5-4F03-8365-8C68EDD0CB69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D140BEE-B9C3-49E7-9264-A6AE0CFEFAA1}
+	EndGlobalSection
+EndGlobal
