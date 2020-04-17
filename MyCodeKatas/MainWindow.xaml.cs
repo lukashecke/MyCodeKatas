@@ -202,16 +202,20 @@ namespace MyCodeKatas
         }
         private void SolutionButton_Click(object sender, RoutedEventArgs e)
         {
-            string localSolutionPath = @"C:\Users\hecke\source\repos\lukashecke\MyCodeKatas\MyCodeKatas.sln";
+            string localSolutionPath = @"C:\Users\hecke\source\repos\lukashecke\MyCodeKatas\MyCodeKatas.sln"; // private
+            string alternativeSolutionPath = @"C:\Users\l.hecke\source\repos\lukashecke\MyCodeKatas\MyCodeKatas.sln"; // work
             if (File.Exists(localSolutionPath))
             {
                 Process.Start(new ProcessStartInfo(localSolutionPath));
+            }
+            else if (File.Exists(alternativeSolutionPath))
+            {
+                Process.Start(new ProcessStartInfo(alternativeSolutionPath));
             }
             else
             {
                 MessageBox.Show("Die Projektmappe liegt auf meinem Rechner.\n\nLukas", "Sorry");
             }
-
         }
         private void PART_ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
