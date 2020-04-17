@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,10 @@ namespace Kata13_CountingCodeLines
     /// </summary>
     class LineCounter
     {
-        #region properties/ entities
+        #region fields/ properties/ entities
+        private int LastShownProgress = -1;
+        private int AmountOfFilesToBeChecked { get; set; }
+        private int AmountOfProcessedFiles { get; set; }
         private string Path { get; set; }
         private int AmountOfJavaCodeLines { get; set; }
         private int AmountOfCsCodeLines { get; set; }
@@ -58,11 +62,21 @@ namespace Kata13_CountingCodeLines
             if (ValidatePath(path))
             {
                 GetFilePaths();
-                AmountOfJavaCodeLines = CountJavaLines();
-                AmountOfCsCodeLines = CountCsLines();
-                Console.WriteLine();
-                Console.WriteLine($"Der Übergebene Pfad enthät {AmountOfCsCodeLines} Zeilen C# Code.");
-                Console.WriteLine($"Der Übergebene Pfad enthät {AmountOfJavaCodeLines} Zeilen Java Code.");
+                BackgroundWorker backgroundWorker = new BackgroundWorker();
+                backgroundWorker.WorkerReportsProgress = true;
+                backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_CountLines);
+                backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ShowProgress);
+                backgroundWorker.RunWorkerCompleted += delegate
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"Der Übergebene Pfad enthät {AmountOfCsCodeLines} Zeilen C# Code.");
+                    Console.WriteLine($"Der Übergebene Pfad enthät {AmountOfJavaCodeLines} Zeilen Java Code.");
+                };
+                backgroundWorker.RunWorkerAsync();
+                while (backgroundWorker.IsBusy)
+                {
+                    // Programm offen halten
+                }
             }
         }
         #endregion
@@ -70,7 +84,7 @@ namespace Kata13_CountingCodeLines
         #region counting lines functions
         // counting lines functions can be mainly copy pasted for further programming languages
         // but keep in mind, that syntax definition can differ between them
-        private int CountCsLines()
+        private int CountCsLines(object sender)
         {
             foreach (string filePath in CsFilePaths)
             {
@@ -85,10 +99,16 @@ namespace Kata13_CountingCodeLines
                         AmountOfCsCodeLines++;
                     }
                 }
+                AmountOfProcessedFiles++;
+                (sender as BackgroundWorker).ReportProgress((int)(((double)AmountOfProcessedFiles / AmountOfFilesToBeChecked) * 100), null);
             }
             return AmountOfCsCodeLines;
         }
-        private int CountJavaLines()
+        /// <summary>
+        /// Removes all comments, then reads the not empty lines.
+        /// </summary>
+        /// <returns></returns>
+        private int CountJavaLines(object sender)
         {
             foreach (string filePath in JavaFilePaths)
             {
@@ -103,13 +123,15 @@ namespace Kata13_CountingCodeLines
                         AmountOfJavaCodeLines++;
                     }
                 }
+                AmountOfProcessedFiles++;
+                (sender as BackgroundWorker).ReportProgress((int)(((double)AmountOfProcessedFiles / AmountOfFilesToBeChecked) * 100));
             }
             return AmountOfJavaCodeLines;
         }
         #endregion
 
         #region string manipulation functions
-        // TODO: Methode übersichtlicher aufbauen/ schreiben. 
+        // TODO: Mit Max noch weiter refactoren?
         /// <summary>
         /// <para>Removes all multiline-comments. On one line, over multiple lines and mixtures of both.</para>
         /// Important: Has to be done before the removal of the singleline comments! (due to syntax evaluation order)
@@ -119,20 +141,22 @@ namespace Kata13_CountingCodeLines
         private string[] RemoveMultiLineComments(string[] clearLines)
         {
             List<string> linesWithoutComments = new List<string>();
-            bool multiLineComment = false;
+            bool multiLineCommentLine = false;
             foreach (string line in clearLines)
             {
-                if (multiLineComment) // Multiline comment line
+                // 1. Handle Multicomment line
+                if (multiLineCommentLine)
                 {
+                    // check if multilinecomment ends in this line
                     int multiLineCommentEndIndex = line.IndexOf("*/");
-                    if (multiLineCommentEndIndex != -1) // Multiline comment ends in this line
+                    if (multiLineCommentEndIndex != -1)
                     {
-                        multiLineComment = false;
+                        multiLineCommentLine = false;
                         string line2 = line.Remove(0, multiLineCommentEndIndex + 2);
 
                         linesWithoutComments.Add(RemoveInLineMultiLineComments(line2));
                     }
-                    else
+                    else // if not is is a regular comment line and can be erased
                     {
                         linesWithoutComments.Add(string.Empty);
                     }
@@ -141,25 +165,25 @@ namespace Kata13_CountingCodeLines
                 {
                     int multiLineCommentStartIndex = line.IndexOf("/*");
                     int multiLineCommentEndIndex = line.IndexOf("*/");
-                    // Multiline comment in one line
-                    if (multiLineCommentStartIndex != -1 && multiLineCommentEndIndex != -1 && !multiLineComment)
+                    // check for multilinecomment in one line e.g. Console./*This*/Write/*is*/Line("Hello world!");/*ignored*/
+                    if (multiLineCommentStartIndex != -1 && multiLineCommentEndIndex != -1 && !multiLineCommentLine)
                     {
                         string clearedLine = RemoveInLineMultiLineComments(line);
                         multiLineCommentStartIndex = clearedLine.IndexOf("/*");
-                        if (multiLineCommentStartIndex != -1 && !multiLineComment && !CommentStartInsideAString(clearedLine))
+                        if (multiLineCommentStartIndex != -1 && !multiLineCommentLine && !CommentStartInsideAString(clearedLine))
                         {
-                            multiLineComment = true;
+                            multiLineCommentLine = true;
                             linesWithoutComments.Add(clearedLine.Remove(multiLineCommentStartIndex));
                         }
                         linesWithoutComments.Add(clearedLine);
                     }
-                    // Multiline comment begins in this line
-                     else if (multiLineCommentStartIndex != -1 && !multiLineComment && !CommentStartInsideAString(line))
+                    // else searching for a multilinecomment starting sequence
+                    else if (multiLineCommentStartIndex != -1 && !multiLineCommentLine && !CommentStartInsideAString(line))
                     {
-                        multiLineComment = true;
+                        multiLineCommentLine = true;
                         linesWithoutComments.Add(line.Remove(multiLineCommentStartIndex));
                     }
-                    else
+                    else // else regular codeline
                     {
                         linesWithoutComments.Add(line);
                     }
@@ -167,7 +191,6 @@ namespace Kata13_CountingCodeLines
             }
             return linesWithoutComments.ToArray();
         }
-
         /// <summary>
         /// Removes in-line multiline comments (one per loop-iteration) while there are no one left.
         /// Example: ("/*foo*/something/*bar*/" -> "something")
@@ -235,33 +258,45 @@ namespace Kata13_CountingCodeLines
         #region IO functions
         private void GetFilePaths() // TODO: Verknüpfungen zu Dateien oder Ordnern können noch nicht ausgelesen werden, und werden momentan noch ignoriert
         {
-            if (File.Exists(Path))
+            try
             {
-                switch (System.IO.Path.GetExtension(Path))
+                if (File.Exists(Path))
                 {
-                    case ".java":
-                        JavaFilePaths.Add(Path);
-                        break;
-                    case ".cs":
-                        CsFilePaths.Add(Path);
-                        break;
-                    default:
-                        break;
+                    AmountOfFilesToBeChecked = 1;
+                    switch (System.IO.Path.GetExtension(Path))
+                    {
+                        case ".java":
+                            JavaFilePaths.Add(Path);
+                            break;
+                        case ".cs":
+                            CsFilePaths.Add(Path);
+                            break;
+                        default:
+                            break;
+                    }
+                    Console.WriteLine("0%"); // if one singlie file the progress is instant 100%
+                }
+                else if (Directory.Exists(Path))
+                {
+                    string[] filePaths = filePaths = Directory.GetFiles(Path, "*.java", SearchOption.AllDirectories);
+                    AmountOfFilesToBeChecked += filePaths.Length;
+                    foreach (string filePath in filePaths)
+                    {
+                        JavaFilePaths.Add(filePath);
+                    }
+                    filePaths = Directory.GetFiles(Path, "*.cs", SearchOption.AllDirectories);
+                    AmountOfFilesToBeChecked += filePaths.Length;
+                    foreach (string filePath in filePaths)
+                    {
+                        CsFilePaths.Add(filePath);
+                    }
                 }
             }
-            else if (Directory.Exists(Path))
+            catch (Exception e)
             {
-                string[] filePaths = Directory.GetFiles(Path, "*.java", SearchOption.AllDirectories);
-                foreach (string filePath in filePaths)
-                {
-                    JavaFilePaths.Add(filePath);
-                }
-                filePaths = Directory.GetFiles(Path, "*.cs", SearchOption.AllDirectories);
-                foreach (string filePath in filePaths)
-                {
-                    CsFilePaths.Add(filePath);
-                }
+                Console.WriteLine(e.Message);
             }
+
         }
         private bool ValidatePath(string path)
         {
@@ -272,6 +307,23 @@ namespace Kata13_CountingCodeLines
             }
             Path = path;
             return true;
+        }
+        #endregion
+
+        #region progress functions
+        private void BackgroundWorker_ShowProgress(object sender, ProgressChangedEventArgs e)
+        {
+            if (LastShownProgress != e.ProgressPercentage)
+            {
+                Console.WriteLine($"{e.ProgressPercentage} %");
+                LastShownProgress = e.ProgressPercentage;
+            }
+
+        }
+        private void BackgroundWorker_CountLines(object sender, DoWorkEventArgs e)
+        {
+            AmountOfJavaCodeLines = CountJavaLines(sender);
+            AmountOfCsCodeLines = CountCsLines(sender);
         }
         #endregion
     }

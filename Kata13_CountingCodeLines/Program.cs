@@ -11,7 +11,7 @@ namespace Kata13_CountingCodeLines
         static void Main(string[] args)
         {
             LineCounter lineCounter;
-            if (args.Length>0)
+            if (args.Length > 0)
             {
                 lineCounter = new LineCounter(args.First());
             }
@@ -21,7 +21,6 @@ namespace Kata13_CountingCodeLines
                 string userInput = Console.ReadLine();
                 lineCounter = new LineCounter(userInput);
             }
-
             Console.WriteLine();
             Console.WriteLine("Program finished. Press any key to exit.");
             Console.ReadKey();
