@@ -88,7 +88,15 @@ namespace Kata13_CountingCodeLines
         {
             foreach (string filePath in CsFilePaths)
             {
-                string[] lines = File.ReadAllLines(filePath);
+                string[] lines = new string[0];
+                try
+                {
+                    lines = File.ReadAllLines(filePath);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
                 string[] linesWithoutComments = new string[lines.Length];
                 linesWithoutComments = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
                 linesWithoutComments = RemoveSingleLineComments(linesWithoutComments);
@@ -112,7 +120,16 @@ namespace Kata13_CountingCodeLines
         {
             foreach (string filePath in JavaFilePaths)
             {
-                string[] lines = File.ReadAllLines(filePath);
+                string[] lines = new string[0];
+                try
+                {
+                    lines = File.ReadAllLines(filePath);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
                 string[] clearLines = new string[lines.Length];
                 clearLines = RemoveMultiLineComments(lines); // Has to be done first because multiline-comments are stronger then one line comments
                 clearLines = RemoveSingleLineComments(clearLines);
