@@ -14,6 +14,21 @@ namespace Kata04_DataMunging
             Weather = GetWeatherDayInfoDTOs(datReader);
         }
 
+        internal void ShowDayWithSmallestTemperatureSpread()
+        {
+            int day = 0;
+            int min = int.MaxValue;
+            foreach (WeatherDayInfoDTO weatherDayInfoDTO in this.Weather)
+            {
+                if (Math.Abs(weatherDayInfoDTO.MaxTemp - weatherDayInfoDTO.MinTemp) < min)
+                {
+                    min = Math.Abs(weatherDayInfoDTO.MaxTemp - weatherDayInfoDTO.MinTemp);
+                    day = weatherDayInfoDTO.Day;
+                }
+            }
+            Console.WriteLine($"Day {day} has the smallest temperature spread.");
+        }
+
         private List<WeatherDayInfoDTO> GetWeatherDayInfoDTOs(DatReader datReader)
         {
             List<WeatherDayInfoDTO> weatherDayInfoDTOs = new List<WeatherDayInfoDTO>();

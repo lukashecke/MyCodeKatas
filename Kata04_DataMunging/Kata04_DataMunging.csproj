@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatReader.cs" />
+    <Compile Include="FootballDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamResultDTO.cs" />
     <Compile Include="WeatherDayInfoDTO.cs" />
     <Compile Include="WeatherDTO.cs" />
   </ItemGroup>
