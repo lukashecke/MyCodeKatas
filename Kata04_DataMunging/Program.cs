@@ -10,7 +10,19 @@ namespace Kata04_DataMunging
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Kata 04 Test");
+            DatReader datReader = new DatReader("weather.dat");
+            WeatherDTO weather = new WeatherDTO(datReader);
+            int day=0;
+            int min = int.MaxValue;
+            foreach (WeatherDayInfoDTO weatherDayInfoDTO in weather.Weather)
+            {
+                if (Math.Abs(weatherDayInfoDTO.MaxTemp-weatherDayInfoDTO.MinTemp)<min)
+                {
+                    min = Math.Abs(weatherDayInfoDTO.MaxTemp - weatherDayInfoDTO.MinTemp);
+                    day = weatherDayInfoDTO.Day;
+                }
+            }
+            Console.WriteLine($"Day {day} has the smallest temperature spread.");
             Console.ReadKey();
         }
     }
