@@ -120,6 +120,9 @@ namespace MyCodeKatas
         {
             switch (((ListViewItem)PART_ListView.SelectedItem).Content.ToString())
             {
+                case "Kata04: Data Munging":
+                    Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe"));
+                    break;
                 case "Kata13: Counting Code Lines":
                     Process.Start(new ProcessStartInfo("Kata13_CountingCodeLines.exe"));
                     break;

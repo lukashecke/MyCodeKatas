@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCodeKatas", "MyCodeKatas\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata13_CountingCodeLines", "Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj", "{3194F704-2DC8-4B38-AC59-F4FDCC32E272}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata04_DataMunging", "Kata04_DataMunging\Kata04_DataMunging.csproj", "{57B7E805-73B7-41E4-B8C4-63EA25C23ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3194F704-2DC8-4B38-AC59-F4FDCC32E272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B7E805-73B7-41E4-B8C4-63EA25C23ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B7E805-73B7-41E4-B8C4-63EA25C23ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B7E805-73B7-41E4-B8C4-63EA25C23ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B7E805-73B7-41E4-B8C4-63EA25C23ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

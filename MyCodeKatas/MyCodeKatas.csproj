@@ -107,6 +107,10 @@
     <Resource Include="Cat.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kata04_DataMunging\Kata04_DataMunging.csproj">
+      <Project>{57b7e805-73b7-41e4-b8c4-63ea25c23abc}</Project>
+      <Name>Kata04_DataMunging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj">
       <Project>{3194f704-2dc8-4b38-ac59-f4fdcc32e272}</Project>
       <Name>Kata13_CountingCodeLines</Name>
