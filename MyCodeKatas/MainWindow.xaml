@@ -20,27 +20,27 @@
             <Image Source="CodeKata.png" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <ListView x:Name="PART_ListView" Grid.Row="1" Grid.Column="0" SelectionChanged="PART_ListView_SelectionChanged">
-            <ListViewItem Content="Kata01: Supermarket Pricing" MouseDoubleClick="Kata01_MouseDoubleClick"/>
-            <ListViewItem Content="Kata02: Karate Chop" MouseDoubleClick="Kata02_MouseDoubleClick"/>
-            <ListViewItem Content="Kata03: How Big? How Fast?" MouseDoubleClick="Kata03_MouseDoubleClick"/>
-            <ListViewItem Content="Kata04: Data Munging" MouseDoubleClick="Kata04_MouseDoubleClick"/>
-            <ListViewItem Content="Kata05: Bloom Filters" MouseDoubleClick="Kata05_MouseDoubleClick"/>
-            <ListViewItem Content="Kata06: Anagrams" MouseDoubleClick="Kata06_MouseDoubleClick"/>
-            <ListViewItem Content="Kata07: How'd I Do?" MouseDoubleClick="Kata07_MouseDoubleClick"/>
-            <ListViewItem Content="Kata08: Conflicting Objectives" MouseDoubleClick="Kata08_MouseDoubleClick"/>
-            <ListViewItem Content="Kata09: Back to the Checkout" MouseDoubleClick="Kata09_MouseDoubleClick"/>
-            <ListViewItem Content="Kata10: Hashes vs. Classes" MouseDoubleClick="Kata10_MouseDoubleClick"/>
-            <ListViewItem Content="Kata11: Sorting It Out" MouseDoubleClick="Kata11_MouseDoubleClick"/>
-            <ListViewItem Content="Kata12: Best Sellers" MouseDoubleClick="Kata12_MouseDoubleClick"/>
-            <ListViewItem Content="Kata13: Counting Code Lines" MouseDoubleClick="Kata13_MouseDoubleClick"/>
-            <ListViewItem Content="Kata14: Tom Swift Under the Milkwood" MouseDoubleClick="Kata14_MouseDoubleClick"/>
-            <ListViewItem Content="Kata15: A Diversion" MouseDoubleClick="Kata15_MouseDoubleClick"/>
-            <ListViewItem Content="Kata16: Business Rules" MouseDoubleClick="Kata16_MouseDoubleClick"/>
-            <ListViewItem Content="Kata17: More Business Rules" MouseDoubleClick="Kata17_MouseDoubleClick"/>
-            <ListViewItem Content="Kata18: Transitive Dependencies" MouseDoubleClick="Kata18_MouseDoubleClick"/>
-            <ListViewItem Content="Kata19: Word Chains" MouseDoubleClick="Kata19_MouseDoubleClick"/>
-            <ListViewItem Content="Kata20: Klondike" MouseDoubleClick="Kata20_MouseDoubleClick"/>
-            <ListViewItem Content="Kata21: Simple Lists" MouseDoubleClick="Kata21_MouseDoubleClick"/>
+            <ListViewItem Content="Kata01: Supermarket Pricing"/>
+            <ListViewItem Content="Kata02: Karate Chop"/>
+            <ListViewItem Content="Kata03: How Big? How Fast?"/>
+            <ListViewItem Content="Kata04: Data Munging"/>
+            <ListViewItem Content="Kata05: Bloom Filters"/>
+            <ListViewItem Content="Kata06: Anagrams"/>
+            <ListViewItem Content="Kata07: How'd I Do?"/>
+            <ListViewItem Content="Kata08: Conflicting Objectives"/>
+            <ListViewItem Content="Kata09: Back to the Checkout"/>
+            <ListViewItem Content="Kata10: Hashes vs. Classes"/>
+            <ListViewItem Content="Kata11: Sorting It Out"/>
+            <ListViewItem Content="Kata12: Best Sellers"/>
+            <ListViewItem Content="Kata13: Counting Code Lines"/>
+            <ListViewItem Content="Kata14: Tom Swift Under the Milkwood"/>
+            <ListViewItem Content="Kata15: A Diversion"/>
+            <ListViewItem Content="Kata16: Business Rules"/>
+            <ListViewItem Content="Kata17: More Business Rules"/>
+            <ListViewItem Content="Kata18: Transitive Dependencies"/>
+            <ListViewItem Content="Kata19: Word Chains"/>
+            <ListViewItem Content="Kata20: Klondike"/>
+            <ListViewItem Content="Kata21: Simple Lists"/>
         </ListView>
         <Grid Grid.Row="1" Grid.Column="1">
             <StackPanel VerticalAlignment="Center">
