@@ -1,0 +1,51 @@
+﻿<Window x:Class="MyCodeKatas.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyCodeKatas"
+        xmlns:converter="clr-namespace:MyCodeKatas.Converter"
+        mc:Ignorable="d"
+        Title="MyCodeKatas" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <converter:WorkingStateToImageSourceConverter x:Key="WorkingStateToImageSourceConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Image Source="/Images/CodeKata.png" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <ListView ItemsSource="{Binding Katas}" 
+                  SelectedItem="{Binding Katas.Current, Mode=TwoWay}"
+                  HorizontalContentAlignment="Stretch"
+                  Grid.Row="1" Grid.Column="0" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Name}" Grid.Column="0"/>
+                        <Image Source="{Binding WorkingState, Converter={StaticResource WorkingStateToImageSourceConverter}}" Grid.Column="1" Height="15"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel VerticalAlignment="Center">
+                <Button Content="Zur Internetseite" Width="150" Height="50" Margin="25" Command="{Binding WebsiteCommand}"/>
+                <Button Content="Programm öffnen" Width="150" Height="50" Margin="25" Command="{Binding ProgramCommand}"/>
+                <Button Content="Projektmappe öffnen" Width="150" Height="50" Margin="25" Command="{Binding SolutionCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
