@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Kata04_DataMunging
+namespace Kata04_DataMunging.DTOs
 {
     class WeatherDayInfoDTO
     {
@@ -24,17 +24,13 @@ namespace Kata04_DataMunging
             {
                 line = Regex.Replace(line," +"," ");
                 string[] splittedLine = line.Split(' ');
-                int day;
-                Int32.TryParse(splittedLine[1], out day);
+                int.TryParse(splittedLine[1], out int day);
                 Day = day;
-                int max;
-                Int32.TryParse(splittedLine[2].Replace("*", ""), out max);
+                int.TryParse(splittedLine[2].Replace("*", ""), out int max);
                 MaxTemp = max;
-                int min;
-                Int32.TryParse(splittedLine[3].Replace("*",""), out min);
+                int.TryParse(splittedLine[3].Replace("*", ""), out int min);
                 MinTemp = min;
-                int avg;
-                Int32.TryParse(splittedLine[4], out avg);
+                int.TryParse(splittedLine[4], out int avg);
                 AverageTemp = avg;
             }
         }

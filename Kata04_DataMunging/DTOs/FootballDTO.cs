@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kata04_DataMunging
+namespace Kata04_DataMunging.DTOs
 {
     internal class FootballDTO
     {

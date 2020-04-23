@@ -8,7 +8,7 @@ namespace MyCodeKatas.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string source = string.Empty;
+            string source;
             switch ((WorkingState)value)
             {
                 case WorkingState.New:

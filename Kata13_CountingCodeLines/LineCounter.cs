@@ -62,8 +62,10 @@ namespace Kata13_CountingCodeLines
             if (ValidatePath(path))
             {
                 GetFilePaths();
-                BackgroundWorker backgroundWorker = new BackgroundWorker();
-                backgroundWorker.WorkerReportsProgress = true;
+                BackgroundWorker backgroundWorker = new BackgroundWorker
+                {
+                    WorkerReportsProgress = true
+                };
                 backgroundWorker.DoWork += new DoWorkEventHandler(BackgroundWorker_CountLines);
                 backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(BackgroundWorker_ShowProgress);
                 backgroundWorker.RunWorkerCompleted += delegate

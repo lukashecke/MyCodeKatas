@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kata04_DataMunging
+namespace Kata04_DataMunging.DTOs
 {
     class WeatherDTO
     {

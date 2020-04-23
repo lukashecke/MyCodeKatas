@@ -53,7 +53,7 @@ namespace MyCodeKatas.ViewModel
             Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Active });
+            Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.New });

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Kata04_DataMunging
+namespace Kata04_DataMunging.DTOs
 {
     class TeamResultDTO
     {
@@ -26,11 +26,9 @@ namespace Kata04_DataMunging
                 if (splittedLine.Length>=10) // Filtering Header
                 {
                     Teamname = splittedLine[2];
-                    int goalsFor;
-                    Int32.TryParse(splittedLine[7], out goalsFor);
+                    int.TryParse(splittedLine[7], out int goalsFor);
                     GoalsFor = goalsFor;
-                    int goalsAgainst;
-                    Int32.TryParse(splittedLine[9], out goalsAgainst);
+                    int.TryParse(splittedLine[9], out int goalsAgainst);
                     GoalsAgainst = goalsAgainst;
                 }
             }
