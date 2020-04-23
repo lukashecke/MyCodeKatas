@@ -125,14 +125,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\add.png" />
-    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\resolved.png" />
+    <Resource Include="Images\problem.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\finished.png" />
+    <Resource Include="Images\closed.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\in_progress.png" />
+    <Resource Include="Images\active.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

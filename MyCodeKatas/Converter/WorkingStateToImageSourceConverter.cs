@@ -11,16 +11,20 @@ namespace MyCodeKatas.Converter
             string source = string.Empty;
             switch ((WorkingState)value)
             {
-                case WorkingState.NotStarted:
+                case WorkingState.New:
                     source = "";
                     break;
-                case WorkingState.InProgress:
-                    source = "/Images/in_progress.png";
+                case WorkingState.Active:
+                    source = "/Images/active.png";
                     break;
-                case WorkingState.Finished:
-                    source = "/Images/finished.png";
+                case WorkingState.Resolved:
+                    source = "/Images/resolved.png";
+                    break;
+                case WorkingState.Closed:
+                    source = "/Images/closed.png";
                     break;
                 default:
+                    source = "/Images/problem.png";
                     break;
             }
             return source;

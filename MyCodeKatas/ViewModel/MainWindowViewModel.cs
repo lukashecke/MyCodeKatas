@@ -50,27 +50,27 @@ namespace MyCodeKatas.ViewModel
         }
         private void InitializeKatas()
         {
-            Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.InProgress });
-            Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata09: Back to the Checkout", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata10: Hashes vs. Classes", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata11: Sorting It Out", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata12: Best Sellers", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata13: Counting Code Lines", WorkingState = WorkingState.Finished });
-            Katas.Add(new Kata() { Name = "Kata14: Tom Swift Under the Milkwood", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata15: A Diversion", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata16: Business Rules", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata17: More Business Rules", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata18: Transitive Dependencies", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata19: Word Chains", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata20: Klondike", WorkingState = WorkingState.NotStarted });
-            Katas.Add(new Kata() { Name = "Kata21: Simple Lists", WorkingState = WorkingState.NotStarted });
+            Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Active });
+            Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata09: Back to the Checkout", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata10: Hashes vs. Classes", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata11: Sorting It Out", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata12: Best Sellers", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata13: Counting Code Lines", WorkingState = WorkingState.Resolved });
+            Katas.Add(new Kata() { Name = "Kata14: Tom Swift Under the Milkwood", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata15: A Diversion", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata16: Business Rules", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata17: More Business Rules", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata18: Transitive Dependencies", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata19: Word Chains", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata20: Klondike", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata21: Simple Lists", WorkingState = WorkingState.New });
         }
         #endregion
 

@@ -2,8 +2,9 @@
 {
     public enum WorkingState
     {
-        NotStarted,
-        InProgress,
-        Finished
+        New,
+        Active,
+        Resolved,
+        Closed
     }
 }
