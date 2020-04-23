@@ -51,7 +51,7 @@ namespace MyCodeKatas.ViewModel
         private void InitializeKatas()
         {
             Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Active });
             Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
@@ -100,6 +100,9 @@ namespace MyCodeKatas.ViewModel
         {
             switch (Katas.Current.Name)
             {
+                case "Kata02: Karate Chop":
+                    Process.Start(new ProcessStartInfo("Kata02_KarateChop.exe"));
+                    break;
                 case "Kata04: Data Munging":
                     Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe"));
                     break;
@@ -137,7 +140,7 @@ namespace MyCodeKatas.ViewModel
                 case "Kata06: Anagrams":
                     Process.Start(new ProcessStartInfo("http://codekata.com/kata/kata06-anagrams/"));
                     break;
-                case "Kata07: How’d I Do?":
+                case "Kata07: How'd I Do?":
                     Process.Start(new ProcessStartInfo("http://codekata.com/kata/kata07-howd-i-do/"));
                     break;
                 case "Kata08: Conflicting Objectives":

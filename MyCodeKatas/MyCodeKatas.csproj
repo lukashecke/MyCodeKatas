@@ -115,6 +115,10 @@
     <Resource Include="Cat.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kata02_KarateChop\Kata02_KarateChop.csproj">
+      <Project>{f41d8ebb-61e9-4c56-8785-3e91b3a43537}</Project>
+      <Name>Kata02_KarateChop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kata04_DataMunging\Kata04_DataMunging.csproj">
       <Project>{57b7e805-73b7-41e4-b8c4-63ea25c23abc}</Project>
       <Name>Kata04_DataMunging</Name>
