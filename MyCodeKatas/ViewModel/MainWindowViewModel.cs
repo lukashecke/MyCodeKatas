@@ -104,7 +104,7 @@ namespace MyCodeKatas.ViewModel
                     Process.Start(new ProcessStartInfo("Kata02_KarateChop.exe"));
                     break;
                 case "Kata04: Data Munging":
-                    Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe"));
+                    Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe","managerStartMode"));
                     break;
                 case "Kata13: Counting Code Lines":
                     Process.Start(new ProcessStartInfo("Kata13_CountingCodeLines.exe"));
