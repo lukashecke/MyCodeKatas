@@ -51,11 +51,11 @@ namespace MyCodeKatas.ViewModel
         private void InitializeKatas()
         {
             Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Active });
+            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.Active });
             Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata09: Back to the Checkout", WorkingState = WorkingState.New });
@@ -105,6 +105,9 @@ namespace MyCodeKatas.ViewModel
                     break;
                 case "Kata04: Data Munging":
                     Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe","managerStartMode"));
+                    break;
+                case "Kata06: Anagrams":
+                    Process.Start(new ProcessStartInfo("Kata06_Anagrams.exe", "managerStartMode"));
                     break;
                 case "Kata13: Counting Code Lines":
                     Process.Start(new ProcessStartInfo("Kata13_CountingCodeLines.exe"));

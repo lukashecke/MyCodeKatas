@@ -123,6 +123,10 @@
       <Project>{57b7e805-73b7-41e4-b8c4-63ea25c23abc}</Project>
       <Name>Kata04_DataMunging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kata06_Anagrams\Kata06_Anagrams.csproj">
+      <Project>{48993066-f2b8-4527-a5dd-59de98fb2315}</Project>
+      <Name>Kata06_Anagrams</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj">
       <Project>{3194f704-2dc8-4b38-ac59-f4fdcc32e272}</Project>
       <Name>Kata13_CountingCodeLines</Name>

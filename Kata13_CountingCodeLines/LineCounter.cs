@@ -59,6 +59,7 @@ namespace Kata13_CountingCodeLines
         #region constructors
         public LineCounter(string path)
         {
+            //TODO: Max herangehensweise is lineofcode() -> counter++  dann mit vielen flags arbeiten
             if (ValidatePath(path))
             {
                 GetFilePaths();

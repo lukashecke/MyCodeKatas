@@ -15,7 +15,7 @@ namespace Kata02_KarateChop
 
                 /* pi is partitioning index, arr[pi] is  
                 now at right place */
-                int pi = partition(arr, low, high);
+                int pi = Partition(arr, low, high);
 
                 // Recursively sort elements before 
                 // partition and after partition 
@@ -24,7 +24,7 @@ namespace Kata02_KarateChop
             }
             return arr;
         }
-        private int partition(int[] arr, int low,
+        private int Partition(int[] arr, int low,
                                    int high)
         {
             int pivot = arr[high];
