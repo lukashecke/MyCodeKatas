@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kata06_Anagrams
 {
@@ -20,7 +16,7 @@ namespace Kata06_Anagrams
             string urlPrefix = string.Empty;
             if (args.Length > 0 && args[0].Equals("managerStartMode"))
             {
-                urlPrefix = AppDomain.CurrentDomain.BaseDirectory.Replace("\\MyCodeKatas\\bin\\Debug\\", "\\Kata04_DataMunging\\bin\\Debug\\");
+                urlPrefix = AppDomain.CurrentDomain.BaseDirectory.Replace("\\MyCodeKatas\\bin\\Debug\\", "\\Kata06_Anagrams\\bin\\Debug\\");
             }
             return urlPrefix;
         }
