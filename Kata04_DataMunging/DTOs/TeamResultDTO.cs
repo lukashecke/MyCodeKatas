@@ -23,7 +23,7 @@ namespace Kata04_DataMunging.DTOs
             {
                 line = Regex.Replace(line, " +", " ");
                 string[] splittedLine = line.Split(' ');
-                if (splittedLine.Length>=10) // Filtering Header
+                if (splittedLine[1]!="Team") // Filtering Header
                 {
                     Teamname = splittedLine[2];
                     int.TryParse(splittedLine[7], out int goalsFor);
