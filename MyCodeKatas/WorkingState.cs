@@ -2,9 +2,10 @@
 {
     public enum WorkingState
     {
+        //TODO: Was sind flagged enums
         New,
         Active,
-        Resolved,
+        Resolved, // =5 auch möglich
         Closed
     }
 }

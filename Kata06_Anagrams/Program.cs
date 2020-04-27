@@ -12,7 +12,6 @@ namespace Kata06_Anagrams
         {
             string urlPrefix = TryGetPrefix(args);
             Anagram anagram = new Anagram(urlPrefix);
-            anagram.PrintAnagrams();
             Console.ReadKey();
         }
          

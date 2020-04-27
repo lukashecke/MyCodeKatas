@@ -14,6 +14,14 @@ namespace Kata13_CountingCodeLines
     /// </summary>
     class LineCounter
     {
+        //private string name;
+        //public string Name { get { return this.name; }
+        //     set; }
+
+        //public string Name { get; private set; }
+         
+            // Hochsprache -> interm. -> Maschiene
+            // 1:1 MAW untersch. Objektorientierung und c, interfaces und vererbung, private anfangen für schlankes inteface Berichtsheft
         #region fields/ properties/ entities
         private int LastShownProgress = -1;
         private int AmountOfFilesToBeChecked { get; set; }
@@ -57,9 +65,20 @@ namespace Kata13_CountingCodeLines
         #endregion
 
         #region constructors
+        // TODO: Klasse generell überarbeiten Klassenvariablen oder doch lieber lokale variable
+        // so eingeschränkt wie möglich halten private variable -> ... -> Public Eigenschaft
+        // so sicher wie möglich, siehe private -> internal -> public
         public LineCounter(string path)
         {
-            //TODO: Max herangehensweise is lineofcode() -> counter++  dann mit vielen flags arbeiten
+            // TODO: Max herangehensweise is lineofcode() -> counter++  dann mit vielen flags arbeiten
+            // prüfung is line of code erweiterbar als ienumerable , interface einer regel und pro regel implementierung der klasse
+            // regelprüfungen bool
+            // 1. Regel standartkommentar bool IsStandartComment()
+            // und dann hierarchisch auf die flags abfragen -> Laufzeit
+            // Regeln über konstruktor übergeben
+            // regelwerke werden für cs und java einzelnd definieren
+            // NUR C#, JAVA weglassen!
+            // -> SUMMARY KOMMENTARE beachten
             if (ValidatePath(path))
             {
                 GetFilePaths();
