@@ -127,6 +127,10 @@
       <Project>{48993066-f2b8-4527-a5dd-59de98fb2315}</Project>
       <Name>Kata06_Anagrams</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kata08_ConflictingObjectives\Kata08_ConflictingObjectives.csproj">
+      <Project>{f8030364-f8dc-467c-af61-b68ee8df78f5}</Project>
+      <Name>Kata08_ConflictingObjectives</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj">
       <Project>{3194f704-2dc8-4b38-ac59-f4fdcc32e272}</Project>
       <Name>Kata13_CountingCodeLines</Name>

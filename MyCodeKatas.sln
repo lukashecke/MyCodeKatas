@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata02_KarateChopTests", "K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata06_Anagrams", "Kata06_Anagrams\Kata06_Anagrams.csproj", "{48993066-F2B8-4527-A5DD-59DE98FB2315}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata08_ConflictingObjectives", "Kata08_ConflictingObjectives\Kata08_ConflictingObjectives.csproj", "{F8030364-F8DC-467C-AF61-B68EE8DF78F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{48993066-F2B8-4527-A5DD-59DE98FB2315}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48993066-F2B8-4527-A5DD-59DE98FB2315}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48993066-F2B8-4527-A5DD-59DE98FB2315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8030364-F8DC-467C-AF61-B68EE8DF78F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8030364-F8DC-467C-AF61-B68EE8DF78F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8030364-F8DC-467C-AF61-B68EE8DF78F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8030364-F8DC-467C-AF61-B68EE8DF78F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

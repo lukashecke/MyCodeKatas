@@ -50,14 +50,15 @@ namespace MyCodeKatas.ViewModel
         }
         private void InitializeKatas()
         {
+            // TODO: Zu jedem CodeKata Überlegungen machen und hinzufügen evtl. immer Notizklasse oder so was und diese auch bei Programmausführung ausgeben?
             Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Closed });
             Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Closed });
             Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.Active });
+            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.New });
+            Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.Active });
             Katas.Add(new Kata() { Name = "Kata09: Back to the Checkout", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata10: Hashes vs. Classes", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata11: Sorting It Out", WorkingState = WorkingState.New });
@@ -101,6 +102,7 @@ namespace MyCodeKatas.ViewModel
             switch (Katas.Current.Name)
             {
                 case "Kata02: Karate Chop":
+                    // Kata02_KarateChop.Program.Main(null); // Geht so nicht, weil Manager ein WPF und die einzelnen Programme Konsolenprogramme sind
                     Process.Start(new ProcessStartInfo("Kata02_KarateChop.exe"));
                     break;
                 case "Kata04: Data Munging":
@@ -108,6 +110,10 @@ namespace MyCodeKatas.ViewModel
                     break;
                 case "Kata06: Anagrams":
                     Process.Start(new ProcessStartInfo("Kata06_Anagrams.exe", "managerStartMode"));
+                    break;
+                case "Kata08: Conflicting Objectives":
+                    // TODO: Nicht als neuen Prozess starten
+                    Process.Start(new ProcessStartInfo("Kata08_ConflictingObjectives.exe", "managerStartMode"));
                     break;
                 case "Kata13: Counting Code Lines":
                     Process.Start(new ProcessStartInfo("Kata13_CountingCodeLines.exe"));
