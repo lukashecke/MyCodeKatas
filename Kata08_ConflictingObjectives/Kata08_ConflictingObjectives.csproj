@@ -44,8 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dictionary.cs" />
+    <Compile Include="Extendible\Extendible.cs" />
+    <Compile Include="Fast\Fast.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readable\Dictionary.cs" />
+    <Compile Include="Readable\Readable.cs" />
+    <Compile Include="Readable\Searcher.cs" />
+    <Compile Include="ThoughtsOnThisKata.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

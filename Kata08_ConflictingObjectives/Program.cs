@@ -8,11 +8,14 @@ namespace Kata08_ConflictingObjectives
 {
     class Program
     {
+        internal static string UrlPrefix { get; set; }
         static void Main(string[] args)
         {
-            string urlPrefix = TryGetPrefix(args);
-            Dictionary dictionary = new Dictionary(urlPrefix);
-            Console.WriteLine(dictionary.Words.First());
+            UrlPrefix = TryGetPrefix(args);
+            Dictionary dictionary = new Dictionary(UrlPrefix);
+            Readable.Readable.Start();
+            // Fast.Fast.Start();
+            // Extendible.Extendible.Start();
             Console.ReadKey();
         }
 

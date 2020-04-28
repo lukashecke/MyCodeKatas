@@ -112,7 +112,6 @@ namespace MyCodeKatas.ViewModel
                     Process.Start(new ProcessStartInfo("Kata06_Anagrams.exe", "managerStartMode"));
                     break;
                 case "Kata08: Conflicting Objectives":
-                    // TODO: Nicht als neuen Prozess starten
                     Process.Start(new ProcessStartInfo("Kata08_ConflictingObjectives.exe", "managerStartMode"));
                     break;
                 case "Kata13: Counting Code Lines":
