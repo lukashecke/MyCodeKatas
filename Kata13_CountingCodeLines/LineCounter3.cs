@@ -30,8 +30,8 @@ namespace Kata13_CountingCodeLines
                 totalLinesOfCode += csharpLinesOfCode;
 
                 Console.WriteLine($"Found {totalLinesOfCode} lines of code:");
-                Console.WriteLine($"Java: {javaLinesOfCode}");
-                Console.WriteLine($"C#: {csharpLinesOfCode}");
+                Console.WriteLine($"Java:\t{javaLinesOfCode}");
+                Console.WriteLine($"C#:\t{csharpLinesOfCode}");
             }
             else
             {
@@ -54,6 +54,10 @@ namespace Kata13_CountingCodeLines
             foreach (string file in sourceCodeFilePaths)
             {
                 string fileText = File.ReadAllText(file);
+                if (fileText==string.Empty)
+                {
+                    continue;
+                }
                 string clearedFileText = languageSpecifications.RomoveMultiLineComments(fileText);
                 clearedFileText = languageSpecifications.RemoveSingleLineComments(clearedFileText);
                 clearedFileText = languageSpecifications.RemoveDocumentationComments(clearedFileText);
