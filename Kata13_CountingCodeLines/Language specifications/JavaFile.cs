@@ -133,6 +133,10 @@ namespace Kata13_CountingCodeLines.Language_specifications
                     //}
                     #endregion
                 }
+                if (arr.Length == 0)
+                {
+                    wentThrough = true;
+                }
             }
             return clearedFileText;
         }

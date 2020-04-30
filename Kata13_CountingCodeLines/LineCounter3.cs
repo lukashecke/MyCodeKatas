@@ -53,11 +53,8 @@ namespace Kata13_CountingCodeLines
             int counter = 0;
             foreach (string file in sourceCodeFilePaths)
             {
+                Console.WriteLine(file);
                 string fileText = File.ReadAllText(file);
-                if (fileText==string.Empty)
-                {
-                    continue;
-                }
                 string clearedFileText = languageSpecifications.RomoveMultiLineComments(fileText);
                 clearedFileText = languageSpecifications.RemoveSingleLineComments(clearedFileText);
                 clearedFileText = languageSpecifications.RemoveDocumentationComments(clearedFileText);
