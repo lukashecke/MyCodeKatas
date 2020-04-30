@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Language specifications\ILanguageFile.cs" />
+    <Compile Include="Language specifications\CSharpFile.cs" />
     <Compile Include="Language specifications\JavaFile.cs" />
     <Compile Include="LineCounter.cs" />
     <Compile Include="LineCounter2.cs" />

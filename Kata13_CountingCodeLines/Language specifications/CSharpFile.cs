@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Kata13_CountingCodeLines.Language_specifications
 {
-    public class JavaFile : ILanguageFile
+    public class CSharpFile : ILanguageFile
     {
-        public string Extension => ".java";
+        public string Extension => ".cs";
         public string StringDefinition => "\"(.*?)([^\\\\\\\"])\"";
-       
-        // TODO: Remember when writing C#-File specificatins, "//" filters Documentation comments, too
+      
         public string RemoveSingleLineComments(string fileText)
         {
             var lines = fileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
@@ -137,7 +136,7 @@ namespace Kata13_CountingCodeLines.Language_specifications
             return clearedFileText;
         }
         /// <summary>
-        /// In Java the documentation commentaries are equal to the multiline comments so they don't need to be handled seperately anymore.
+        /// In CSharp the documentation commentaries are removed with the //-comments, no extra handeling needed.
         /// </summary>
         /// <param name="fileText"></param>
         /// <returns></returns>

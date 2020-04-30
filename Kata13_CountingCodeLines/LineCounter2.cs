@@ -45,8 +45,8 @@ namespace Kata13_CountingCodeLines
                 // Step One: Remove all "real" strings (that are not inside a multiline command) so /* inside them cannot trigger a false handeling
                 // Step Two: Remove all multiline commands so the handeling of the codeline counting is as easy as possible
                 string fileText = File.ReadAllText(file);
-                string clearedFileText = languageSpecifications.RomoveInLineComments(fileText);
-                var lines = clearedFileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+               // string clearedFileText = languageSpecifications.RomoveInLineComments(fileText);
+                //var lines = clearedFileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             }
             return counter;
             // TODO: @MAW - Nach über 10 Stunden umsetzung der Lösung ohne, bzw. sehr wenig code-entfernung -> Multiline handeling wird zu komplex, weil vor während und nach dem zeilenauslösen prüfungen gemacht werden müssen, das wird teilweise einfach unnötig komplex -> neuer Ansatz alle kommentare entfernen, danach durch den Code gehen

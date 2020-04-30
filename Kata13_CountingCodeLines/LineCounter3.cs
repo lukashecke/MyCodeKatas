@@ -14,14 +14,24 @@ namespace Kata13_CountingCodeLines
         /// This flags indicates if a line starts, ends , or is a multiline comment.
         /// </summary>
         private bool multilineComment = false;
-        public int linesOfCode = 0;
-        public LineCounter3(string path)
+        public int totalLinesOfCode = 0;
+        public LineCounter3(string path) //TODO: Die Sprache muss irgendie noch übergeben werden oder immer alle sprachen auslesen die ich kenne (also das Programm)
         {
+            // TODO: TimeTrackerTool sehen bis wann für heute gebucht, und eventuell noch mehr überlegen :)
             if (ValidatePath(path))
             {
+                Console.WriteLine("Please wait, while counting...");
                 List<string> javaFilePaths = GetAllFilePaths<JavaFile>(path);
-                linesOfCode = GetAmountOfCodeLines<JavaFile>(javaFilePaths);
-                Console.WriteLine($"{linesOfCode} code lines found.");
+                int javaLinesOfCode = GetAmountOfCodeLines<JavaFile>(javaFilePaths);
+                totalLinesOfCode += javaLinesOfCode;
+
+                List<string> csharpFilePaths = GetAllFilePaths<CSharpFile>(path);
+                int csharpLinesOfCode = GetAmountOfCodeLines<CSharpFile>(csharpFilePaths);
+                totalLinesOfCode += csharpLinesOfCode;
+
+                Console.WriteLine($"Found {totalLinesOfCode} lines of code:");
+                Console.WriteLine($"Java: {javaLinesOfCode}");
+                Console.WriteLine($"C#: {csharpLinesOfCode}");
             }
             else
             {
@@ -35,17 +45,18 @@ namespace Kata13_CountingCodeLines
         /// <para>Step Two: Remove all multiline commands so the handeling of the codeline counting is as easy as possible.</para>
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="javaFilePaths"></param>
+        /// <param name="sourceCodeFilePaths"></param>
         /// <returns></returns>
-        public int GetAmountOfCodeLines<T>(List<string> javaFilePaths) where T : ILanguageFile, new()
+        public int GetAmountOfCodeLines<T>(List<string> sourceCodeFilePaths) where T : ILanguageFile, new()
         {
             T languageSpecifications = new T();
             int counter = 0;
-            foreach (string file in javaFilePaths)
+            foreach (string file in sourceCodeFilePaths)
             {
                 string fileText = File.ReadAllText(file);
                 string clearedFileText = languageSpecifications.RomoveMultiLineComments(fileText);
                 clearedFileText = languageSpecifications.RemoveSingleLineComments(clearedFileText);
+                clearedFileText = languageSpecifications.RemoveDocumentationComments(clearedFileText);
                 var lines = clearedFileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
                 foreach (string line in lines)
                 {
@@ -56,7 +67,7 @@ namespace Kata13_CountingCodeLines
                 }
             }
             return counter;
-          
+
         }
 
         /// <summary>
