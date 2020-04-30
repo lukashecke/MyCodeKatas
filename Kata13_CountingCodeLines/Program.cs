@@ -10,16 +10,16 @@ namespace Kata13_CountingCodeLines
     {
         static void Main(string[] args)
         {
-            LineCounter lineCounter;
+            LineCounter3 lineCounter3;
             if (args.Length > 0)
             {
-                lineCounter = new LineCounter(args.First());
+                lineCounter3 = new LineCounter3(args.First());
             }
             else
             {
                 Console.WriteLine("Please insert root directory oder so:");
                 string userInput = Console.ReadLine();
-                lineCounter = new LineCounter(userInput);
+                lineCounter3 = new LineCounter3(userInput);
             }
             Console.WriteLine();
             Console.WriteLine("Program finished. Press any key to exit.");

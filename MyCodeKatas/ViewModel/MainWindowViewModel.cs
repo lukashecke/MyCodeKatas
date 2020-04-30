@@ -50,7 +50,7 @@ namespace MyCodeKatas.ViewModel
         }
         private void InitializeKatas()
         {
-            // TODO: Zu jedem CodeKata Überlegungen machen und hinzufügen evtl. immer Notizklasse oder so was und diese auch bei Programmausführung ausgeben?
+            // TODO: Zu jedem CodeKata Überlegungen -> Notizen.Add(...) -> Diese als Ausgabe verwenden?
             Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Closed });
             Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });

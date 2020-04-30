@@ -8,7 +8,7 @@ namespace Kata08_ConflictingObjectives
         internal List<string> Words { get; set; }
         public Dictionary(string urlPrefix)
         {
-            Words = new List<string>(File.ReadAllLines(urlPrefix + "wordlist.txt")); // TODO: Testen
+            Words = new List<string>(File.ReadAllLines(urlPrefix + "wordlist.txt"));
         }
     }
 }

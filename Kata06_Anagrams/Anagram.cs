@@ -97,8 +97,6 @@ namespace Kata06_Anagrams
         #region old tries
         //        private void FillAnagrams(string[] wordList)
         //        {
-
-        //            /////TODO: Laufzeit von ner Stunde ca. mal nur mit kleinbuchstaben-Wörtern testen und danach laufzeitoptimierungen bis hin zu neuer idee
         //            Anagrams = new string[wordList.Length + 1];
         //            Anagrams[0] = "0";
         //            int nextFreeIndex = 0;
@@ -126,7 +124,6 @@ namespace Kata06_Anagrams
         //                            Array.Sort(arr2);
         //                            if (new string(arr).Equals(new string(arr2))) // NUR SO KÖNNEN CHARARRAYS VERGLIHEN WERDEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //                            {
-        //                                // TODO: Fehler A's wird zu As nach dem zerlegen ins char array
         //                                Anagrams[i] += " " + word;
         //                                foundPartner = true;
         //                                break;
@@ -196,8 +193,6 @@ namespace Kata06_Anagrams
         //            List<string>[] useThisArray = new List<string>[GetLongestWordLength(wordList)];
         //            AnagramList = new List<string>();
         //            HashSet<string> usedAnagrams = new HashSet<string>();
-
-        //            // TODO: Überarbeiten
         //            List<string>[] groupedArray = GroupByAmountOfLetters(wordList);
         //            foreach (var item in groupedArray)
         //            {

@@ -65,20 +65,8 @@ namespace Kata13_CountingCodeLines
         #endregion
 
         #region constructors
-        // TODO: Klasse generell überarbeiten Klassenvariablen oder doch lieber lokale variable
-        // so eingeschränkt wie möglich halten private variable -> ... -> Public Eigenschaft
-        // so sicher wie möglich, siehe private -> internal -> public
         public LineCounter(string path)
         {
-            // TODO: Max herangehensweise is lineofcode() -> counter++  dann mit vielen flags arbeiten
-            // prüfung is line of code erweiterbar als ienumerable , interface einer regel und pro regel implementierung der klasse
-            // regelprüfungen bool
-            // 1. Regel standartkommentar bool IsStandartComment()
-            // und dann hierarchisch auf die flags abfragen -> Laufzeit
-            // Regeln über konstruktor übergeben
-            // regelwerke werden für cs und java einzelnd definieren
-            // NUR C#, JAVA weglassen!
-            // -> SUMMARY KOMMENTARE beachten
             if (ValidatePath(path))
             {
                 GetFilePaths();
@@ -170,7 +158,6 @@ namespace Kata13_CountingCodeLines
         #endregion
 
         #region string manipulation functions
-        // TODO: Mit Max noch weiter refactoren?
         /// <summary>
         /// <para>Removes all multiline-comments. On one line, over multiple lines and mixtures of both.</para>
         /// Important: Has to be done before the removal of the singleline comments! (due to syntax evaluation order)
@@ -295,7 +282,7 @@ namespace Kata13_CountingCodeLines
         #endregion
 
         #region IO functions
-        private void GetFilePaths() // TODO: Verknüpfungen zu Dateien oder Ordnern können noch nicht ausgelesen werden, und werden momentan noch ignoriert
+        private void GetFilePaths() // TODO: Verknüpfungen auslesen
         {
             try
             {
