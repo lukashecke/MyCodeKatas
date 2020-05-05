@@ -13,7 +13,7 @@ namespace Kata13_CountingCodeLinesTests
         public void DirectoryTest()
         {
             // Arrange
-            LineCounter3 lineCounter3 = new LineCounter3("TestFiles");
+            LineCounter lineCounter3 = new LineCounter("TestFiles");
             int expectedResult = 30;
             // Act
             int result = lineCounter3.totalLinesOfCode;

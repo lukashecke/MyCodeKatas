@@ -12,7 +12,6 @@ namespace Kata13_CountingCodeLines.Language_specifications
         public string Extension => ".java";
         public string StringDefinition => "\"(.*?)([^\\\\\\\"])\"";
        
-        // TODO: Remember when writing C#-File specificatins, "//" filters Documentation comments, too
         public string RemoveSingleLineComments(string fileText)
         {
             var lines = fileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);

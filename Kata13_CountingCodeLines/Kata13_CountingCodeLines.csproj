@@ -47,8 +47,7 @@
     <Compile Include="Language specifications\CSharpFile.cs" />
     <Compile Include="Language specifications\JavaFile.cs" />
     <Compile Include="LineCounter.cs" />
-    <Compile Include="LineCounter2.cs" />
-    <Compile Include="LineCounter3.cs" />
+    <Compile Include="TurboCounterCSharp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

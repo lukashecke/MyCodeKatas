@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Kata13_CountingCodeLines
@@ -10,16 +11,23 @@ namespace Kata13_CountingCodeLines
     {
         static void Main(string[] args)
         {
-            LineCounter3 lineCounter3;
+            LineCounter lineCounter3;
             if (args.Length > 0)
             {
-                lineCounter3 = new LineCounter3(args.First());
+                lineCounter3 = new LineCounter(args.First());
             }
             else
             {
                 Console.WriteLine("Please insert root directory oder so:");
                 string userInput = Console.ReadLine();
-                lineCounter3 = new LineCounter3(userInput);
+                if (userInput.Split(' ')[1].Equals("-turbocs"))
+                {
+                    TurboCounterCSharp turboCounter = new TurboCounterCSharp(userInput.Split(' ')[0]);
+                }
+                else
+                {
+                lineCounter3 = new LineCounter(userInput);
+                }
             }
             Console.WriteLine();
             Console.WriteLine("Program finished. Press any key to exit.");

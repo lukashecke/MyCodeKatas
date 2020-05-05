@@ -12,7 +12,7 @@ namespace Kata13_CountingCodeLinesTests
         [TestMethod]
         public void SimpleTest()
         {
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 3;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<JavaFile>(new List<string>() { "TestFiles/Java/SimpleTest.java" });
@@ -23,7 +23,7 @@ namespace Kata13_CountingCodeLinesTests
         public void AdvancedTest()
         {
             // Arrange
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 5;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<JavaFile>(new List<string>() { "TestFiles/Java/AdvancedTest.java" });
@@ -33,7 +33,7 @@ namespace Kata13_CountingCodeLinesTests
         [TestMethod]
         public void UltimateTest()
         {
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 7;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<JavaFile>(new List<string>() { "TestFiles/Java/UltimateTest.java" });
@@ -44,7 +44,7 @@ namespace Kata13_CountingCodeLinesTests
         public void DirectoryTest()
         {
             // Arrange
-            LineCounter3 lineCounter3 = new LineCounter3("TestFiles/Java");
+            LineCounter lineCounter3 = new LineCounter("TestFiles/Java");
             int expectedResult = 15;
             // Act
             int result = lineCounter3.totalLinesOfCode;

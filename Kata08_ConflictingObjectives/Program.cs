@@ -16,6 +16,8 @@ namespace Kata08_ConflictingObjectives
             Readable.Readable.Start();
             // Fast.Fast.Start();
             // Extendible.Extendible.Start();
+            Console.WriteLine();
+            Console.WriteLine("Program finsished. Press any key to exit.");
             Console.ReadKey();
         }
 

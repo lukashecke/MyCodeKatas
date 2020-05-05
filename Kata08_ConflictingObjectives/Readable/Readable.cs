@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,17 @@ namespace Kata08_ConflictingObjectives.Readable
             ShowTheStartUpText();
             CreateTheDictionary();
             GetAllTheSixLetteredWordsFromTheDictionary();
-            ShowMeTheWordsIAmSearchingFor();
+            ShowProgramDiagnostics();
         }
 
-        private static void ShowMeTheWordsIAmSearchingFor()
+        private static void ShowProgramDiagnostics()
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             Searcher searcher = new Searcher(WordsWithSixLetters);
             List<string> outputLines = searcher.GetMeTheWordsIAmLookingFor();
-            foreach (string line in outputLines)
-            {
-                Console.WriteLine(line);
-            }
+            stopwatch.Stop();
+            Console.WriteLine(outputLines.Count+" combinations found in "+stopwatch.Elapsed.TotalSeconds+" s.");
         }
 
         private static void GetAllTheSixLetteredWordsFromTheDictionary()

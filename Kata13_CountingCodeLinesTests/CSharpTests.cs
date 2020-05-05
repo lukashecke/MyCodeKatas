@@ -12,7 +12,7 @@ namespace Kata13_CountingCodeLinesTests
         [TestMethod]
         public void SimpleTest()
         {
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 3;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<CSharpFile>(new List<string>() { "TestFiles/CSharp/SimpleTest.cs" });
@@ -23,7 +23,7 @@ namespace Kata13_CountingCodeLinesTests
         public void AdvancedTest()
         {
             // Arrange
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 5;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<CSharpFile>(new List<string>() { "TestFiles/CSharp/AdvancedTest.cs" });
@@ -33,7 +33,7 @@ namespace Kata13_CountingCodeLinesTests
         [TestMethod]
         public void UltimateTest()
         {
-            LineCounter3 lineCounter3 = new LineCounter3("Empty.txt");
+            LineCounter lineCounter3 = new LineCounter("Empty.txt");
             int expectedResult = 7;
             // Act
             int result = lineCounter3.GetAmountOfCodeLines<CSharpFile>(new List<string>() { "TestFiles/CSharp/UltimateTest.cs" });
@@ -44,7 +44,7 @@ namespace Kata13_CountingCodeLinesTests
         public void DirectoryTest()
         {
             // Arrange
-            LineCounter3 lineCounter3 = new LineCounter3("TestFiles/CSharp");
+            LineCounter lineCounter3 = new LineCounter("TestFiles/CSharp");
             int expectedResult = 15;
             // Act
             int result = lineCounter3.totalLinesOfCode;

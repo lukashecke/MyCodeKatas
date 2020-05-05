@@ -4,64 +4,52 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Kata13_CountingCodeLines
 {
-    public class LineCounter3
+    /// <summary>
+    /// Get you the approximate lines of code. Ignores special cases such as comment-sequences inside of strings and do not filter them out.
+    /// </summary>
+    class TurboCounterCSharp
     {
-        /// <summary>
-        /// This flags indicates if a line starts, ends , or is a multiline comment.
-        /// </summary>
-        private bool multilineComment = false;
         public int totalLinesOfCode = 0;
-        public LineCounter3(string path) //TODO: Die Sprache muss irgendie noch übergeben werden oder immer alle sprachen auslesen die ich kenne (also das Programm)
+        public TurboCounterCSharp(string path)
         {
-            // TODO: TimeTrackerTool sehen bis wann für heute gebucht, und eventuell noch mehr überlegen :)
             if (ValidatePath(path))
             {
-                Console.WriteLine("Please wait, while counting...");
-                List<string> javaFilePaths = GetAllFilePaths<JavaFile>(path);
-                int javaLinesOfCode = GetAmountOfCodeLines<JavaFile>(javaFilePaths);
-                totalLinesOfCode += javaLinesOfCode;
-
                 List<string> csharpFilePaths = GetAllFilePaths<CSharpFile>(path);
-                int csharpLinesOfCode = GetAmountOfCodeLines<CSharpFile>(csharpFilePaths);
-                totalLinesOfCode += csharpLinesOfCode;
+                int csharpLinesOfCode = GetApproximateAmountOfCodeLines(csharpFilePaths);
 
-                Console.WriteLine($"Found {totalLinesOfCode} lines of code:");
-                Console.WriteLine($"Java:\t{javaLinesOfCode}");
-                Console.WriteLine($"C#:\t{csharpLinesOfCode}");
+                Console.WriteLine();
+                Console.WriteLine($"Found {csharpLinesOfCode} lines of C# code:");
             }
             else
             {
                 Console.WriteLine("No valid path!");
             }
         }
-
         /// <summary>
-        /// T can be instantiated to get the LanguageSpecifications of the child from ILanguageFile.
-        /// <para>Step One: Remove all "real" strings (that are not inside a multiline command) so /* inside them cannot trigger a false handeling.</para>
-        /// <para>Step Two: Remove all multiline commands so the handeling of the codeline counting is as easy as possible.</para>
+        /// Ignores Strings and mainly deletes comments via Regex.
+        /// Removes only multiline comments.
+        /// After that it counts the not empty code lines. If they do not start with a //.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceCodeFilePaths"></param>
         /// <returns></returns>
-        public int GetAmountOfCodeLines<T>(List<string> sourceCodeFilePaths) where T : ILanguageFile, new()
+        public int GetApproximateAmountOfCodeLines(List<string> sourceCodeFilePaths)
         {
-            T languageSpecifications = new T();
             int counter = 0;
-            foreach (string file in sourceCodeFilePaths)
+            foreach (string filePath in sourceCodeFilePaths)
             {
-                Console.WriteLine(file);
-                string fileText = File.ReadAllText(file);
-                string clearedFileText = languageSpecifications.RomoveMultiLineComments(fileText);
-                clearedFileText = languageSpecifications.RemoveSingleLineComments(clearedFileText);
-                clearedFileText = languageSpecifications.RemoveDocumentationComments(clearedFileText);
+                Console.WriteLine(filePath);
+                string fileText = File.ReadAllText(filePath);
+                string clearedFileText = Regex.Replace(fileText, "(/\\*)(.*)(\\*/)", "");
                 var lines = clearedFileText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
                 foreach (string line in lines)
                 {
-                    if (!string.IsNullOrWhiteSpace(line))
+                    if (!string.IsNullOrWhiteSpace(line) && !line.TrimStart().StartsWith("//"))
                     {
                         counter++;
                     }
@@ -70,7 +58,6 @@ namespace Kata13_CountingCodeLines
             return counter;
 
         }
-
         /// <summary>
         /// T can be instantiated to get the LanguageSpecifications of the child from ILanguageFile.
         /// </summary>
