@@ -63,7 +63,7 @@ namespace MyCodeKatas.ViewModel
             Katas.Add(new Kata() { Name = "Kata10: Hashes vs. Classes", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata11: Sorting It Out", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata12: Best Sellers", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata13: Counting Code Lines", WorkingState = WorkingState.Active });
+            Katas.Add(new Kata() { Name = "Kata13: Counting Code Lines", WorkingState = WorkingState.Resolved });
             Katas.Add(new Kata() { Name = "Kata14: Tom Swift Under the Milkwood", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata15: A Diversion", WorkingState = WorkingState.New });
             Katas.Add(new Kata() { Name = "Kata16: Business Rules", WorkingState = WorkingState.New });
