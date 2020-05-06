@@ -51,27 +51,154 @@ namespace MyCodeKatas.ViewModel
         private void InitializeKatas()
         {
             // TODO: Zu jedem CodeKata Überlegungen -> Notizen.Add(...) -> Diese als Ausgabe verwenden?
-            Katas.Add(new Kata() { Name = "Kata01: Supermarket Pricing", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata02: Karate Chop", WorkingState = WorkingState.Closed });
-            Katas.Add(new Kata() { Name = "Kata03: How Big? How Fast?", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata04: Data Munging", WorkingState = WorkingState.Closed });
-            Katas.Add(new Kata() { Name = "Kata05: Bloom Filters", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata06: Anagrams", WorkingState = WorkingState.Resolved });
-            Katas.Add(new Kata() { Name = "Kata07: How'd I Do?", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata08: Conflicting Objectives", WorkingState = WorkingState.Active });
-            Katas.Add(new Kata() { Name = "Kata09: Back to the Checkout", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata10: Hashes vs. Classes", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata11: Sorting It Out", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata12: Best Sellers", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata13: Counting Code Lines", WorkingState = WorkingState.Resolved });
-            Katas.Add(new Kata() { Name = "Kata14: Tom Swift Under the Milkwood", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata15: A Diversion", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata16: Business Rules", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata17: More Business Rules", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata18: Transitive Dependencies", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata19: Word Chains", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata20: Klondike", WorkingState = WorkingState.New });
-            Katas.Add(new Kata() { Name = "Kata21: Simple Lists", WorkingState = WorkingState.New });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata01: Supermarket Pricing",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata02: Karate Chop",
+                WorkingState = WorkingState.Closed,
+                Note =
+                "" // TODO: Kata 2 Notes
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata03: How Big? How Fast?",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata04: Data Munging",
+                WorkingState = WorkingState.Closed,
+                Note =
+                "" // TODO: Kata 4 Notes
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata05: Bloom Filters",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata06: Anagrams",
+                WorkingState = WorkingState.Resolved,
+                Note =
+                "" // TODO: Kata 6 Notes
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata07: How'd I Do?",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata08: Conflicting Objectives",
+                WorkingState = WorkingState.Active,
+                Note =
+                "Gute Namen für Variablen, Eigenschaften, Methode, usw. sind sehr wichtig und verbessern die Lesbarkeit des Quelltextes enorm.\n" +
+                "Wenn mit großen Mengen an Daten gearbeitet werden soll, ist es von essentieller Bedeutung diese für ihre Verwendung spezifisch zu Filtern, bzw. oft verwendete Inhalte einmal vorab zu laden." // TODO: Kata 8 Notes
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata09: Back to the Checkout",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata10: Hashes vs. Classes",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata11: Sorting It Out",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata12: Best Sellers",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata13: Counting Code Lines",
+                WorkingState = WorkingState.Resolved,
+                Note =
+                "" // TODO: Kata 13 Notes
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata14: Tom Swift Under the Milkwood",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata15: A Diversion",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata16: Business Rules",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata17: More Business Rules",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata18: Transitive Dependencies",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata19: Word Chains",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata20: Klondike",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
+            Katas.Add(new Kata()
+            {
+                Name = "Kata21: Simple Lists",
+                WorkingState = WorkingState.New,
+                Note =
+                ""
+            });
         }
         #endregion
 
@@ -106,7 +233,7 @@ namespace MyCodeKatas.ViewModel
                     Process.Start(new ProcessStartInfo("Kata02_KarateChop.exe"));
                     break;
                 case "Kata04: Data Munging":
-                    Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe","managerStartMode"));
+                    Process.Start(new ProcessStartInfo("Kata04_DataMunging.exe", "managerStartMode"));
                     break;
                 case "Kata06: Anagrams":
                     Process.Start(new ProcessStartInfo("Kata06_Anagrams.exe", "managerStartMode"));

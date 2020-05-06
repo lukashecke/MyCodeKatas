@@ -18,12 +18,13 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Image Source="/Images/CodeKata.png" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <ListView ItemsSource="{Binding Katas}" 
+        <ListView x:Name="PART_ListView" 
+            ItemsSource="{Binding Katas}" 
                   SelectedItem="{Binding Katas.Current, Mode=TwoWay}"
                   HorizontalContentAlignment="Stretch"
                   Grid.Row="1" Grid.Column="0" >
@@ -41,11 +42,22 @@
             </ListView.ItemTemplate>
         </ListView>
         <Grid Grid.Row="1" Grid.Column="1">
-            <StackPanel VerticalAlignment="Center">
-                <Button Content="Zur Internetseite" Width="150" Height="50" Margin="25" Command="{Binding WebsiteCommand}"/>
-                <Button Content="Programm öffnen" Width="150" Height="50" Margin="25" Command="{Binding ProgramCommand}"/>
-                <Button Content="Projektmappe öffnen" Width="150" Height="50" Margin="25" Command="{Binding SolutionCommand}"/>
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" >
+                    <TextBlock Text="{Binding ElementName=PART_ListView, Path=SelectedItem.Note}" Margin="10"
+                               TextWrapping="WrapWithOverflow"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Stretch" Grid.Row="1">
+                    <Button Content="Zur Internetseite" Width="120" Height="45" Margin="20" Command="{Binding WebsiteCommand}"/>
+                    <Button Content="Programm öffnen" Width="120" Height="45" Margin="20" Command="{Binding ProgramCommand}"/>
+                    <Button Content="Projektmappe öffnen" Width="120" Height="45" Margin="20" Command="{Binding SolutionCommand}"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

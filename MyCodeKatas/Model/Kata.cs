@@ -7,6 +7,7 @@ namespace Model.MyCodeKatas
     {
         public string Name { get; set; }
         public WorkingState WorkingState { get; set; }
+        public string Note { get; set; }
         public override string ToString()
         {
             return this.Name;

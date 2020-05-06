@@ -51,7 +51,6 @@
     <Compile Include="Readable\Dictionary.cs" />
     <Compile Include="Readable\Readable.cs" />
     <Compile Include="Readable\Searcher.cs" />
-    <Compile Include="ThoughtsOnThisKata.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
