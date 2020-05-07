@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converter\CodingInvolvedToImageSourceConverter.cs" />
     <Compile Include="Converter\WorkingStateToImageSourceConverter.cs" />
     <Compile Include="Model\Kata.cs" />
     <Compile Include="Model\ModelBase.cs" />
@@ -145,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\thinking.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
