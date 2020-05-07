@@ -112,9 +112,24 @@ namespace MyCodeKatas.ViewModel
         {
             Katas.Add(new Kata()
             {
+                Name = "Principles of Clean Code",
+                WorkingState = WorkingState.New,
+                Note = "----- Das hier ist kein CodeKata. Hier sammle ich nur interessante Punkte aus dem Buch, das ich zur Zeit lese. -----\n" +
+                "\nForeword & Introduction:\n"+
+                " - You should name a variable using the same care with wich you name a first-born child.\n" +
+                " - Quality is the result of a million selfless acts of care.\n"+
+                "\n1. Clean Code:\n"+
+                " - Later equals never. (LeBlanc's Law)\n" +
+                " - The only way to make the deadline - the only way to go fast - is to keep the code as clean as possible at all times. (ACAP)\n" +
+                " - Leave the campground cleaner than you found it. (The Boy Scout Rule)\n"+
+                "\n2. Meaningful Names:\n",
+                CodingInvolved = false
+            }); // 00 (Not a CodeKata)
+            Katas.Add(new Kata()
+            {
                 Name = "Kata01: Supermarket Pricing",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 01
@@ -122,33 +137,25 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata02: Karate Chop",
                 WorkingState = WorkingState.Closed,
-                Note =
-                "InconsistentBinarySearch:\n" +
-                "Problem: Schleife muss umgekehrt werden um die Abfrage nach der Arrayhalbierung durchführen zu können.\n\n" +
-                "IterativeDynamicBinarySearch:\n" +
-                "\n\n" +
-                "IterativeRangeBinarySearch:\n" +
-                "Vorteil: Keine zusätzliche Parameterübergabe benötigt.\n" +
-                "Vorteil: Selbe Funktionsweise wie rekursives Gegenstück, jedoch iterativ (sicherer und verständlicher).\n\n" +
-                "RecursiveDynamicBinarySearch:\n" +
-                "Jedem rekursiven Aufruf wird ein neues halbiertes Array mitgegeben.\n" +
-                "Vorteil: \n" +
-                "Nachteil: Die Indizes entsprechen nicht mehr dem des Originalarrays. -> IndexOffset muss der Methode mitgegeben werden.\n" +
-                "Nachteil: Unnötig jedes mal ein neues Array zu erzeugen (Speicher + Laufzeit).\n\n" +
-                "RecursiveRangeBinarySearch:\n" +
-                "Jedem rekursiven Aufruf wirden Suchbegrenzungen für das Array mitgegeben.\n" +
-                "Vorteil: Speicherfreundlich und Abbruchbedingung kann einfach über die Suchbegrenzungen geschehen.\n" +
-                "Vorteil: Auf schnelligkeit ausgerichtet.\n" +
-                "Nachteil: Die Mitte ist bei geraden (Sub)Arrays immer +-1. -> Die Übergebenen Suchbegrenzungsindezes müssen dass unbeachtete Element mit -+1 wieder greifen.\n\n" +
-                "SyntacticSugarBinarySearch:\n" +
-                "Vorteil: Gut zu lesen mit minimal längerer Laufzeit als RecursiveRange-Variante.", // TODO: Kata 2 Notes
+                Note = "Retrospektive:\n\n"+
+                " - Manuelle Schleifenmanipulationen sind unverständlich und fehleranfällig\n\n" +
+                " - Durch zusätzliche Parameter wird der Code unübersichtlicher\n\n" +
+                " - Rekursive Ansätze sind schwieriger zu verstehen und zu debuggen\n" +
+                "   -> Return nicht vergessen!\n\n"+
+                " - Beim Arbeiten mit Collections ist der Iterationsstart zu beachten (0)\n\n" +
+                " - Dividiere keine Integer\n\n" +
+                " - Lesbarkeit ist minimaler Laufzeitverbesserung vorzuziehen\n\n" +
+                " - Speicher innerhalb von Schleifen zu besetzen ist dämlich\n\n" +
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                "Arrays sind veraltet und nicht umsonst gibt es Listen.", // TODO: Fazit Kata 2
                 CodingInvolved = true
             }); // 02
             Katas.Add(new Kata()
             {
                 Name = "Kata03: How Big? How Fast?",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 03
@@ -156,7 +163,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata04: Data Munging",
                 WorkingState = WorkingState.Closed,
-                Note =
+                Note = "Retrospektive: " +
                 "", // TODO: Kata 4 Notes
                 CodingInvolved = true
             }); // 04
@@ -164,7 +171,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata05: Bloom Filters",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 05
@@ -172,15 +179,20 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata06: Anagrams",
                 WorkingState = WorkingState.Resolved,
-                Note =
-                "", // TODO: Kata 6 Notes
+                Note = "Retrospektive:\n\n" +
+                " - Datenbankzugriffe innerhalb von Schleifen sind Laufzeitkiller\n\n" +
+                " - Mehrfach verwendete Daten einmal vorab laden (Vor einer Schleife!)\n\n" +
+                " - Das filtern, gruppieren, etc. ist bei Zugriff auf große Datenmengen unerlässlich\n\n"+
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                "Umso größer die Schleife (bzw. Datenbank), desto wichtiger ist der speicherfreundliche Umgang damit.",
                 CodingInvolved = true
             }); // 06
             Katas.Add(new Kata()
             {
                 Name = "Kata07: How'd I Do?",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved=false
         }); // 07
@@ -188,16 +200,18 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata08: Conflicting Objectives",
                 WorkingState = WorkingState.Active,
-                Note =
-                "Gute Namen für Variablen, Eigenschaften, Methode, usw. sind sehr wichtig und verbessern die Lesbarkeit des Quelltextes enorm.\n" +
-                "Wenn mit großen Mengen an Daten gearbeitet werden soll, ist es von essentieller Bedeutung diese für ihre Verwendung spezifisch zu Filtern, bzw. oft verwendete Inhalte einmal vorab zu laden.", // TODO: Kata 8 Notes
+                Note = "Retrospektive:\n\n" +
+                " - Gute Namensgebung sorgt für Verständlichkeit auch noch nach langer Zeit.\n\n" +
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                "", // TODO: Kata 8 Notes
                 CodingInvolved = true
             }); // 08
             Katas.Add(new Kata()
             {
                 Name = "Kata09: Back to the Checkout",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 09
@@ -205,7 +219,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata10: Hashes vs. Classes",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 10
@@ -213,7 +227,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata11: Sorting It Out",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 11
@@ -221,7 +235,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata12: Best Sellers",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 12
@@ -229,7 +243,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata13: Counting Code Lines",
                 WorkingState = WorkingState.Resolved,
-                Note =
+                Note = "Retrospektive: " +
                 "", // TODO: Kata 13 Notes
                 CodingInvolved = true
             }); // 13
@@ -237,7 +251,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata14: Tom Swift Under the Milkwood",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 14
@@ -245,7 +259,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata15: A Diversion",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 15
@@ -253,7 +267,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata16: Business Rules",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 16
@@ -261,7 +275,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata17: More Business Rules",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = false
             }); // 17
@@ -269,7 +283,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata18: Transitive Dependencies",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 18
@@ -277,7 +291,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata19: Word Chains",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 19
@@ -285,7 +299,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata20: Klondike",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 20
@@ -293,7 +307,7 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata21: Simple Lists",
                 WorkingState = WorkingState.New,
-                Note =
+                Note = "Retrospektive: " +
                 "",
                 CodingInvolved = true
             }); // 21
