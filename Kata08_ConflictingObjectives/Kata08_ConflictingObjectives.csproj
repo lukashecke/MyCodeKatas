@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Dictionary.cs" />
     <Compile Include="Extendible\Extendible.cs" />
+    <Compile Include="Extendible\OutputMode.cs" />
     <Compile Include="Fast\Fast.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

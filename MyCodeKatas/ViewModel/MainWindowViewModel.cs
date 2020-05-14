@@ -112,7 +112,7 @@ namespace MyCodeKatas.ViewModel
         {
             Katas.Add(new Kata()
             {
-                Name = "Principles of Clean Code",
+                Name = "----- Principles of Clean Code ------",
                 WorkingState = WorkingState.New,
                 Note = "----- Das hier ist kein CodeKata. Hier sammle ich nur interessante Punkte aus dem Buch, das ich zur Zeit lese. -----\n" +
                 "\nForeword & Introduction:\n"+
@@ -122,8 +122,7 @@ namespace MyCodeKatas.ViewModel
                 " - Later equals never. (LeBlanc's Law)\n" +
                 " - The only way to make the deadline - the only way to go fast - is to keep the code as clean as possible at all times. (ACAP)\n" +
                 " - Leave the campground cleaner than you found it. (The Boy Scout Rule)\n"+
-                "\n2. Meaningful Names:\n",
-                CodingInvolved = false
+                "\n2. Meaningful Names:\n"
             }); // 00 (Not a CodeKata)
             Katas.Add(new Kata()
             {
@@ -148,7 +147,7 @@ namespace MyCodeKatas.ViewModel
                 " - Speicher innerhalb von Schleifen zu besetzen ist dämlich\n\n" +
                 "------------------------------------------------------------------------------------------\n\n" +
                 "Fazit:\n\n" +
-                "Arrays sind veraltet und nicht umsonst gibt es Listen.", // TODO: Fazit Kata 2
+                "Arrays sind veraltet und nicht umsonst gibt es Listen.",
                 CodingInvolved = true
             }); // 02
             Katas.Add(new Kata()
@@ -163,8 +162,14 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata04: Data Munging",
                 WorkingState = WorkingState.Closed,
-                Note = "Retrospektive: " +
-                "", // TODO: Kata 4 Notes
+                Note = "Retrospektive:\n\n" +
+                " - Datenverarbeitung erfordert viel preventives Fehlerhandeling\n\n" +
+                " - Datentransferobjekte eigenen sich hervoragend zurm Arbeiten mit Daten\n" +
+                "   -> Keine Businesslogik!\n\n"+
+                " - Ein DTO ersetzt jedoch keine Modellierungsklasse\n\n"+
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                "Daten besitzen in der Regel eine unkonsequente Struktur, d.h. früher oder später wird immer ein Fehlerfall kommen. Es ist immer wichtig zu überlegen, wie man einen Datenzugriff möglichst sicher ausführen kann und zu Beachten, dass einzelne Daten vielleicht aus dem üblichen Strukturraster fallen können.",
                 CodingInvolved = true
             }); // 04
             Katas.Add(new Kata()
@@ -199,12 +204,16 @@ namespace MyCodeKatas.ViewModel
             Katas.Add(new Kata()
             {
                 Name = "Kata08: Conflicting Objectives",
-                WorkingState = WorkingState.Active,
+                WorkingState = WorkingState.Resolved,
                 Note = "Retrospektive:\n\n" +
                 " - Gute Namensgebung sorgt für Verständlichkeit auch noch nach langer Zeit.\n\n" +
+                " - Ist ein Programm erst einmal irgendwie funktionsfähig, ist es leicht, deises je nach Anforderung umzuschreiben.\n\n" +
+                " - Nicht einfach blind static verwenden, lieber korrekte Alternative (z.B. Factory oder SQLite)" +
                 "------------------------------------------------------------------------------------------\n\n" +
                 "Fazit:\n\n" +
-                "", // TODO: Kata 8 Notes
+                "Lesbarkeit, bzw. Programmaufbau können mit der Laufzeit im Kontrast stehen. Das Ausreizen der Lesbarkeit, Erweiterungsfähigkeit oder Laufzeit ist es im Normalfall nicht Wert. Auch hier ist die goldene Mitte der Weg.\n" +
+                "Dennoch bringt jeder Ansatz unverzichtbare Vorteile mit sich und so ist es wichtig ein Programm unter allen diesen Berücksichtigungen zu schreiben:\n" +
+                "Lesbarkeit, Geschwindigkeit und Erweitbarkeit!", // TODO: Kata 8 Notes
                 CodingInvolved = true
             }); // 08
             Katas.Add(new Kata()
@@ -243,8 +252,12 @@ namespace MyCodeKatas.ViewModel
             {
                 Name = "Kata13: Counting Code Lines",
                 WorkingState = WorkingState.Resolved,
-                Note = "Retrospektive: " +
-                "", // TODO: Kata 13 Notes
+                Note = "Retrospektive:\n\n" +
+                " - Ohne konkret definierter Anforderung sind Programmumsetzungen mühsam\n\n"+
+                " - Test-driven Development kommt doch auch dem Entwickler zu Gute\n\n" +
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                "Tests machen dir das Leben einfacher.",
                 CodingInvolved = true
             }); // 13
             Katas.Add(new Kata()
@@ -376,6 +389,9 @@ namespace MyCodeKatas.ViewModel
         {
             switch (Katas.Current.Name)
             {
+                case "----- Principles of Clean Code ------":
+                    Process.Start(new ProcessStartInfo("https://clean-code-developer.de/"));
+                    break;
                 case "Kata01: Supermarket Pricing":
                     Process.Start(new ProcessStartInfo("http://codekata.com/kata/kata01-supermarket-pricing/"));
                     break;

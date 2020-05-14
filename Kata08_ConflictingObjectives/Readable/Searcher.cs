@@ -13,6 +13,7 @@ namespace Kata08_ConflictingObjectives.Readable
 
         public Searcher(List<string> words)
         {
+            // TODO: Lesbarkeit verbessern
             Words = words;
              var temp = new Dictionary().Words.GroupBy(w => w.Length);
 
@@ -30,7 +31,7 @@ namespace Kata08_ConflictingObjectives.Readable
         {
             List<string> wordsIAmLookingFor = new List<string>();
             foreach (string word in Words)
-            {
+            { // TODO: Refactoring in einzelne Methoden
                 string wordComposition = string.Empty;
                 List<List<string>> wordSplits = new List<List<string>>();
                 for (int i = 1; i < 6; i++)

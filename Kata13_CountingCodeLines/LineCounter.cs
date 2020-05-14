@@ -71,6 +71,8 @@ namespace Kata13_CountingCodeLines
             return counter;
 
         }
+        // TODO: Anschauen! evtl. auch hier Factory einbauen
+        // IAbrechner abrechner = Abrechnerfactory.GetInstance().CreateAbrechner(patientenDTO); // Singleton
 
         /// <summary>
         /// T can be instantiated to get the LanguageSpecifications of the child from ILanguageFile.
