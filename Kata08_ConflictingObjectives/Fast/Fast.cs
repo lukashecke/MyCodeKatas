@@ -17,8 +17,9 @@ namespace Kata08_ConflictingObjectives.Fast
             stopwatch.Start();
             Console.WriteLine("Fast Program running...");
             HashSet<string> wordsIAmLookingFor = new HashSet<string>();
-            string[] sixLetteredWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(word => word.Length == 6).ToArray();
-            string[] subWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(s => s.Length < 6).ToArray();
+            string[] relevantWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(s => s.Length < 7).ToArray();
+            string[] sixLetteredWords = relevantWords.Where(word => word.Length == 6).ToArray();
+            string[] subWords = relevantWords.Where(s => s.Length < 6).ToArray();
             string[][] groupedSubWords = { subWords.Where(s => s.Length ==1).ToArray(),
                 subWords.Where(s => s.Length == 2).ToArray(),
                 subWords.Where(s => s.Length == 3).ToArray(),
