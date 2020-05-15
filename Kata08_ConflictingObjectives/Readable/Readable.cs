@@ -11,8 +11,10 @@ namespace Kata08_ConflictingObjectives.Readable
     {
         internal static Dictionary Dictionary { get; set; }
         static List<string> WordsWithSixLetters { get; set; }
+            static Stopwatch stopwatch = new Stopwatch();
         public static void Start()
         {
+            stopwatch.Start();
             ShowTheStartUpText();
             CreateTheDictionary();
             GetAllTheSixLetteredWordsFromTheDictionary();
@@ -21,8 +23,6 @@ namespace Kata08_ConflictingObjectives.Readable
 
         private static void ShowProgramDiagnostics()
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             Searcher searcher = new Searcher(WordsWithSixLetters);
             List<string> outputLines = searcher.GetMeTheWordsIAmLookingFor();
             stopwatch.Stop();

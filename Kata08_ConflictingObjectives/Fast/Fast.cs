@@ -11,8 +11,10 @@ namespace Kata08_ConflictingObjectives.Fast
 {
     static class Fast
     {
+        static Stopwatch stopwatch = new Stopwatch();
         public static void Start()
         {
+            stopwatch.Start();
             Console.WriteLine("Fast Program running...");
             HashSet<string> wordsIAmLookingFor = new HashSet<string>();
             string[] sixLetteredWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(word => word.Length == 6).ToArray();
@@ -23,8 +25,6 @@ namespace Kata08_ConflictingObjectives.Fast
                 subWords.Where(s => s.Length == 4).ToArray(),
                 subWords.Where(s => s.Length ==5).ToArray()};
             object monitor = new object();
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             Parallel.ForEach(sixLetteredWords, (word) =>
             {
                 for (int i = 1; i < 6; i++)

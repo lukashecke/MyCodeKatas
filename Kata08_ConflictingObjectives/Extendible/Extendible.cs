@@ -10,8 +10,10 @@ namespace Kata08_ConflictingObjectives.Extendible
 {
     static class Extendible // TODO: Factorypattern umsetzen und interfaces
     {
+           static  Stopwatch stopwatch = new Stopwatch();
         public static void Start()
         {
+            stopwatch.Start();
             Console.WriteLine("Extendible Program running...");
             SearchForComposedWords(Program.UrlPrefix + "wordlist.txt", 6, OutputMode.Regular);
         }
@@ -30,8 +32,6 @@ namespace Kata08_ConflictingObjectives.Extendible
 
             // Parallel searching
             object monitor = new object();
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             Parallel.ForEach(targetWords, (word) =>
             {
                 for (int i = 1; i < wordLength; i++)

@@ -208,7 +208,7 @@ namespace MyCodeKatas.ViewModel
                 Note = "Retrospektive:\n\n" +
                 " - Gute Namensgebung sorgt für Verständlichkeit auch noch nach langer Zeit.\n\n" +
                 " - Ist ein Programm erst einmal irgendwie funktionsfähig, ist es leicht, deises je nach Anforderung umzuschreiben.\n\n" +
-                " - Nicht einfach blind static verwenden, lieber korrekte Alternative (z.B. Factory oder SQLite)" +
+                " - Nicht einfach blind static verwenden, lieber korrekte Alternative (z.B. Factory oder SQLite)\n\n" +
                 "------------------------------------------------------------------------------------------\n\n" +
                 "Fazit:\n\n" +
                 "Lesbarkeit, bzw. Programmaufbau können mit der Laufzeit im Kontrast stehen. Das Ausreizen der Lesbarkeit, Erweiterungsfähigkeit oder Laufzeit ist es im Normalfall nicht Wert. Auch hier ist die goldene Mitte der Weg.\n" +
