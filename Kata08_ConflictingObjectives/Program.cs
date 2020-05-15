@@ -13,9 +13,9 @@ namespace Kata08_ConflictingObjectives
         {
             UrlPrefix = TryGetPrefix(args);
             Dictionary dictionary = new Dictionary(UrlPrefix);
-            Readable.Readable.Start();
-            Extendible.Extendible.Start();
             Fast.Fast.Start();
+            Extendible.Extendible.Start();
+            Readable.Readable.Start();
             Console.WriteLine();
             Console.WriteLine("Program finsished. Press any key to exit.");
             Console.ReadKey();
