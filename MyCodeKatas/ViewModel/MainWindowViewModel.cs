@@ -206,9 +206,11 @@ namespace MyCodeKatas.ViewModel
                 Name = "Kata08: Conflicting Objectives",
                 WorkingState = WorkingState.Resolved,
                 Note = "Retrospektive:\n\n" +
+                " - Für bessere Laufzeit, Datenzugriffe minimieren und dann auch nur das nötigste laden.\n\n" +
                 " - Gute Namensgebung sorgt für Verständlichkeit auch noch nach langer Zeit.\n\n" +
+                " - Erweitbarkeit in einem Programm (viele Methoden, Parameter, etc.) hat gar keine so große Laufzeitauswirkung.\n\n" +
                 " - Ist ein Programm erst einmal irgendwie funktionsfähig, ist es leicht, deises je nach Anforderung umzuschreiben.\n\n" +
-                " - Nicht einfach blind static verwenden, lieber korrekte Alternative (z.B. Factory oder SQLite)\n\n" +
+                " - Nicht einfach blind static verwenden, lieber korrekte Alternative (z.B. Factory oder SQLite).\n\n" +
                 "------------------------------------------------------------------------------------------\n\n" +
                 "Fazit:\n\n" +
                 "Lesbarkeit, bzw. Programmaufbau können mit der Laufzeit im Kontrast stehen. Das Ausreizen der Lesbarkeit, Erweiterungsfähigkeit oder Laufzeit ist es im Normalfall nicht Wert. Auch hier ist die goldene Mitte der Weg.\n" +

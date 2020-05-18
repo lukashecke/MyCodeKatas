@@ -17,10 +17,17 @@ namespace Kata08_ConflictingObjectives.Fast
             stopwatch.Start();
             Console.WriteLine("Fast Program running...");
             HashSet<string> wordsIAmLookingFor = new HashSet<string>();
-            string[] relevantWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(s => s.Length < 7).ToArray();
-            string[] sixLetteredWords = relevantWords.Where(word => word.Length == 6).ToArray();
-            string[] subWords = relevantWords.Where(s => s.Length < 6).ToArray();
-            string[][] groupedSubWords = { subWords.Where(s => s.Length ==1).ToArray(),
+            string[] relevantWords = File.ReadAllLines(Program.UrlPrefix + "wordlist.txt").Where(s => s.Length < 7).ToArray(); // Einzigr Dateizugriff
+            string[] subWords = new string[26423];
+            string[] sixLetteredWords = new string[28337];
+            Parallel.Invoke(
+                ()=>sixLetteredWords = relevantWords.Where(word => word.Length == 6).ToArray(),
+                () => subWords = relevantWords.Where(s => s.Length < 6).ToArray()
+            );
+            
+
+            string[][] groupedSubWords = { 
+                subWords.Where(s => s.Length ==1).ToArray(),
                 subWords.Where(s => s.Length == 2).ToArray(),
                 subWords.Where(s => s.Length == 3).ToArray(),
                 subWords.Where(s => s.Length == 4).ToArray(),
