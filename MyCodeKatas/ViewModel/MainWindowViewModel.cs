@@ -112,20 +112,6 @@ namespace MyCodeKatas.ViewModel
         {
             Katas.Add(new Kata()
             {
-                Name = "----- Principles of Clean Code ------",
-                WorkingState = WorkingState.New,
-                Note = "----- Das hier ist kein CodeKata. Hier sammle ich nur interessante Punkte aus dem Buch, das ich zur Zeit lese. -----\n" +
-                "\nForeword & Introduction:\n"+
-                " - You should name a variable using the same care with wich you name a first-born child.\n" +
-                " - Quality is the result of a million selfless acts of care.\n"+
-                "\n1. Clean Code:\n"+
-                " - Later equals never. (LeBlanc's Law)\n" +
-                " - The only way to make the deadline - the only way to go fast - is to keep the code as clean as possible at all times. (ACAP)\n" +
-                " - Leave the campground cleaner than you found it. (The Boy Scout Rule)\n"+
-                "\n2. Meaningful Names:\n"
-            }); // 00 (Not a CodeKata)
-            Katas.Add(new Kata()
-            {
                 Name = "Kata01: Supermarket Pricing",
                 WorkingState = WorkingState.New,
                 Note = "Retrospektive: " +
@@ -237,9 +223,14 @@ namespace MyCodeKatas.ViewModel
             Katas.Add(new Kata()
             {
                 Name = "Kata11: Sorting It Out",
-                WorkingState = WorkingState.New,
-                Note = "Retrospektive: " +
-                "",
+                WorkingState = WorkingState.Resolved,
+                Note = "Retrospektive:\n\n" +
+                " - Insertion Sort ist hierfür perfekt und braucht zwangsläufig erst mal keine externen Librarys.\n\n" +
+                " - Dennoch bieten eingebaute Libraries oftmals bereits die gebrauchte Funktionalität an, hier z.B. SortedList.\n\n" +
+                "------------------------------------------------------------------------------------------\n\n" +
+                "Fazit:\n\n" +
+                " - Testdriven Development taugt und vereinfacht das Entwickeln.\n\n" +
+                " - Regex ist super nützlich, wenn man es denn mal kapiert hat.",
                 CodingInvolved = true
             }); // 11
             Katas.Add(new Kata()
@@ -362,7 +353,6 @@ namespace MyCodeKatas.ViewModel
                 switch (Katas.Current.Name)
                 {
                     case "Kata02: Karate Chop":
-                        // Kata02_KarateChop.Program.Main(null); // Geht so nicht, weil Manager ein WPF und die einzelnen Programme Konsolenprogramme sind
                         Process.Start(new ProcessStartInfo("Kata02_KarateChop.exe"));
                         break;
                     case "Kata04: Data Munging":
@@ -373,6 +363,9 @@ namespace MyCodeKatas.ViewModel
                         break;
                     case "Kata08: Conflicting Objectives":
                         Process.Start(new ProcessStartInfo("Kata08_ConflictingObjectives.exe", "managerStartMode"));
+                        break;
+                    case "Kata11: Sorting It Out":
+                        Process.Start(new ProcessStartInfo("Kata11_SortingItOut.exe"));
                         break;
                     case "Kata13: Counting Code Lines":
                         Process.Start(new ProcessStartInfo("Kata13_CountingCodeLines.exe"));

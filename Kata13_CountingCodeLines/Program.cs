@@ -18,6 +18,7 @@ namespace Kata13_CountingCodeLines
             }
             else
             {
+                Console.WriteLine(" adding \" -turbocs\" after the path will aproximately count all C# lines of code");
                 Console.WriteLine("Please insert root directory oder so:");
                 string userInput = Console.ReadLine();
                 if (userInput.Split(' ')[1].Equals("-turbocs"))

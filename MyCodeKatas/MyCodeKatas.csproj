@@ -133,6 +133,10 @@
       <Project>{f8030364-f8dc-467c-af61-b68ee8df78f5}</Project>
       <Name>Kata08_ConflictingObjectives</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kata11_SortingItOut\Kata11_SortingItOut.csproj">
+      <Project>{616a75ee-987f-44fd-b001-aff2b02b4375}</Project>
+      <Name>Kata11_SortingItOut</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kata13_CountingCodeLines\Kata13_CountingCodeLines.csproj">
       <Project>{3194f704-2dc8-4b38-ac59-f4fdcc32e272}</Project>
       <Name>Kata13_CountingCodeLines</Name>
