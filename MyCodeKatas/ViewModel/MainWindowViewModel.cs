@@ -190,7 +190,7 @@ namespace MyCodeKatas.ViewModel
             Katas.Add(new Kata()
             {
                 Name = "Kata08: Conflicting Objectives",
-                WorkingState = WorkingState.Resolved,
+                WorkingState = WorkingState.Closed,
                 Note = "Retrospektive:\n\n" +
                 " - Für bessere Laufzeit, Datenzugriffe minimieren und dann auch nur das nötigste laden.\n\n" +
                 " - Gute Namensgebung sorgt für Verständlichkeit auch noch nach langer Zeit.\n\n" +
